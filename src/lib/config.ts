@@ -270,12 +270,12 @@ export const defaultConfig: SiteConfig = {
     "Some providers featured on this site may compensate us. This may affect the order and placement of listings but does not influence our editorial ratings or reviews.",
   hero: {
     backgroundImageUrl: "/hero.png",
-    imageAlt: "Hair loss treatments",
+    imageAlt: "Man with thick, healthy hair",
     updatedLabel: "Last Updated: Aug 2026",
-    h1: "Best Hair Loss Treatments & Providers of 2026",
-    h2: "Compare the top hair loss providers, side by side",
+    h1: "Best Hair Loss Treatments for Men 2026",
+    h2: "Compare solutions for thicker, fuller hair",
     description:
-      "Compare the best hair loss treatments and telehealth providers — pricing, finasteride and minoxidil options, medical support, and overall value — to find the provider that best fits your needs.",
+      "See the top hair loss treatments and providers for men — compared on price, results, and value — to find what helps you regain thicker, fuller hair.",
   },
   sidebar: {
     socialProofNumber: "18,400+",
