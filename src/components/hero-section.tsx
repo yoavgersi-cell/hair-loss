@@ -26,21 +26,19 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="relative w-full h-auto sm:h-[300px] lg:h-[340px] overflow-hidden bg-gradient-to-r from-[#eef5fc] via-[#e4eff9] to-[#d9e8f6]">
-      {/* Full photo anchored on the right at its natural ratio — the whole man
-          shows (zoomed out, no crop); the blue fills the left for the copy.
-          Desktop only; mobile uses the blue gradient background. */}
-      <div className="absolute inset-y-0 right-[8%] hidden aspect-[1923/818] h-full sm:block">
+      {/* Transparent character cutout on the right over the blue background.
+          object-contain + bottom-anchored so the whole man shows, no crop.
+          Desktop only; mobile is just the blue background. */}
+      <div className="absolute inset-y-0 right-[3%] hidden w-[44%] sm:block">
         <Image
           src={backgroundImageUrl}
           alt={imageAlt}
           fill
           priority
-          sizes="60vw"
-          className="object-cover object-left"
+          sizes="45vw"
+          className="object-contain object-bottom"
         />
       </div>
-      {/* Scrim smooths the seam and keeps the copy legible */}
-      <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-[#eef5fc] from-20% via-[#e6f0fa]/55 via-44% to-transparent to-60%" />
 
       {/* Content */}
       <div
