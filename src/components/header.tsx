@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <header className="border-b-2 border-[#D5D5D5] bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-1.5">
         <Link href="/" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="TopHairLoss.io" className="h-[48px] sm:h-[60px] w-auto" />
