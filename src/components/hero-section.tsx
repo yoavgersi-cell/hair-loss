@@ -47,7 +47,7 @@ export function HeroSection({
           textAlign === "center" && "items-center text-center"
         )}
       >
-        <div className="max-w-[540px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
+        <div className="max-w-[560px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
           {updatedLabel && (
             <span className="mb-4 sm:mb-5 inline-flex items-center gap-1.5 text-[13px] text-gray-600">
               <svg className="h-4 w-4 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
@@ -55,18 +55,18 @@ export function HeroSection({
             </span>
           )}
 
-          <h1 className="text-[22px] sm:text-[28px] lg:text-[30px] leading-[1.12] font-extrabold text-[#191919] lg:whitespace-nowrap">
+          <h1 className="text-[22px] sm:text-[27px] lg:text-[29px] leading-[1.15] font-extrabold text-[#191919]">
             {h1}
           </h1>
 
           {h2 && (
-            <h2 className="mt-2 hidden sm:block text-[24px] lg:text-[26px] leading-[1.25] font-semibold text-[#3a6ea5] lg:whitespace-nowrap">
+            <h2 className="mt-2 hidden sm:block text-[20px] lg:text-[22px] leading-[1.3] font-semibold text-[#3a6ea5]">
               {h2}
             </h2>
           )}
 
           {description && (
-            <p className="mt-3 sm:mt-4 text-[13px] sm:text-[16px] leading-[1.5] sm:leading-[1.6] text-gray-600 max-w-[480px]">
+            <p className="mt-3 sm:mt-3.5 text-[13px] sm:text-[15px] leading-[1.5] sm:leading-[1.6] text-gray-600 max-w-[520px]">
               {description}
             </p>
           )}

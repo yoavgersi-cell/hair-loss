@@ -272,10 +272,10 @@ export const defaultConfig: SiteConfig = {
     backgroundImageUrl: "/hero.png",
     imageAlt: "Man with thick, healthy hair",
     updatedLabel: "Last Updated: Aug 2026",
-    h1: "Best Hair Loss Treatments for Men 2026",
-    h2: "Compare solutions for thicker, fuller hair",
+    h1: "Best Hair Loss Treatments & Providers for Men in 2026",
+    h2: "Compare the top hair loss treatments, side by side",
     description:
-      "See the top hair loss treatments and providers for men — compared on price, results, and value — to find what helps you regain thicker, fuller hair.",
+      "Compare hair loss providers on pricing, treatments, medical support, and real results — and find the one that's right for you.",
   },
   sidebar: {
     socialProofNumber: "18,400+",
