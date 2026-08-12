@@ -29,7 +29,7 @@ export function HeroSection({
       {/* Full photo anchored on the right at its natural ratio — the whole man
           shows (zoomed out, no crop); the blue fills the left for the copy.
           Desktop only; mobile uses the blue gradient background. */}
-      <div className="absolute inset-y-0 right-0 hidden aspect-[1923/818] h-full sm:block">
+      <div className="absolute inset-y-0 right-[8%] hidden aspect-[1923/818] h-full sm:block">
         <Image
           src={backgroundImageUrl}
           alt={imageAlt}
