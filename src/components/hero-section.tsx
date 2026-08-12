@@ -26,15 +26,18 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="relative w-full h-[200px] sm:h-[270px] lg:h-[300px] overflow-hidden bg-[#f5f5f7]">
-      {/* Hero image positioned on the right */}
-      <div className="absolute right-[380px] top-0 h-full w-[50%] hidden sm:block">
+      {/* Hero image — full-bleed background (desktop only; mobile shows the solid bg) */}
+      <div className="absolute inset-0 hidden sm:block">
         <Image
           src={backgroundImageUrl}
           alt={imageAlt}
           fill
           priority
-          className="object-contain object-right-top"
+          sizes="100vw"
+          className="object-cover object-[center_28%]"
         />
+        {/* Left scrim keeps the headline legible over the image's blue space */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#e6f0fa] from-15% via-[#e6f0fa]/55 via-45% to-transparent to-70%" />
       </div>
 
       {/* Content */}
