@@ -286,8 +286,8 @@ export const defaultConfig: SiteConfig = {
       "All providers featured on our platform use secure systems to protect your personal information.",
     featuredImageUrl: "/sidebar-featured.png",
     featuredImageAlt:
-      "Top-rated hair loss treatment provider",
-    featuredImageLink: "#",
+      "Hims — effective hair loss treatments for men",
+    featuredImageLink: "/reviews/hims",
   },
   ranking: {
     providerOrder: [],
