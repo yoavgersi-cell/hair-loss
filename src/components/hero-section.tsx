@@ -25,27 +25,27 @@ export function HeroSection({
   maxTextWidth = "640px",
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-[#e6f0fa]">
-      {/* Desktop image — takes the photo's natural aspect ratio so the whole
-          composition shows (no tight crop); capped so it never gets too tall. */}
-      <div className="relative hidden w-full sm:block sm:aspect-[1923/818] sm:max-h-[500px]">
+    <section className="relative w-full h-auto sm:h-[300px] lg:h-[340px] overflow-hidden bg-gradient-to-r from-[#eef5fc] via-[#e4eff9] to-[#d9e8f6]">
+      {/* Full photo anchored on the right at its natural ratio — the whole man
+          shows (zoomed out, no crop); the blue fills the left for the copy.
+          Desktop only; mobile uses the blue gradient background. */}
+      <div className="absolute inset-y-0 right-0 hidden aspect-[1923/818] h-full sm:block">
         <Image
           src={backgroundImageUrl}
           alt={imageAlt}
           fill
           priority
-          sizes="100vw"
-          className="object-cover object-center"
+          sizes="60vw"
+          className="object-cover object-left"
         />
-        {/* Left scrim keeps the copy legible over the image's blue space */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#e6f0fa] from-12% via-[#e6f0fa]/40 via-45% to-transparent to-68%" />
       </div>
+      {/* Scrim smooths the seam and keeps the copy legible */}
+      <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-[#eef5fc] from-20% via-[#e6f0fa]/55 via-44% to-transparent to-60%" />
 
-      {/* Content — normal flow on mobile (gives the section height), overlaid
-          and vertically centered over the image on desktop. */}
+      {/* Content */}
       <div
         className={cn(
-          "z-10 mx-auto flex w-full max-w-[1280px] flex-col justify-center px-4 py-8 sm:absolute sm:inset-0 sm:py-0 sm:px-10 lg:px-16",
+          "relative z-10 mx-auto flex h-full max-w-[1280px] flex-col justify-center px-4 py-7 sm:px-10 sm:py-0 lg:px-16",
           textAlign === "center" && "items-center text-center"
         )}
       >
@@ -73,7 +73,7 @@ export function HeroSection({
             </p>
           )}
 
-          <div className="mt-5 sm:mt-5 flex items-center gap-3 sm:gap-5">
+          <div className="mt-5 flex items-center gap-3 sm:gap-5">
             {[
               { label: "Licensed Providers", icon: Stethoscope },
               { label: "Top-Rated Options", icon: Star },
