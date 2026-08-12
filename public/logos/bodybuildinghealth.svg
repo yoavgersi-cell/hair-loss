@@ -1,0 +1,12 @@
+<svg width="280" height="55" viewBox="0 0 280 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Swoosh around B -->
+  <ellipse cx="16" cy="18" rx="12" ry="15" stroke="#1a1a1a" stroke-width="2.5" fill="none" transform="rotate(-10 16 18)"/>
+  <!-- BODYBUILDING text -->
+  <text x="30" y="27" font-family="'Arial Black', 'Impact', Arial, sans-serif" font-weight="900" font-size="26" fill="#1a1a1a" letter-spacing="0.5" font-style="italic">BODYBUILDING</text>
+  <!-- HEALTH text -->
+  <text x="140" y="48" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="16" fill="#1a1a1a" letter-spacing="2">HEALTH</text>
+  <!-- Plus/cross icon -->
+  <rect x="228" y="37" width="16" height="16" rx="3.5" fill="#1a1a1a"/>
+  <rect x="233.5" y="40.5" width="5" height="9" rx="1" fill="white"/>
+  <rect x="231" y="43" width="10" height="3.5" rx="1" fill="white"/>
+</svg>
