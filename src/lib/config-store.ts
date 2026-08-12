@@ -276,6 +276,359 @@ const defaultExperts: Expert[] = [
   },
 ];
 
+// ───── Hair-loss comparison battles ─────
+// Winners reflect genuine merits for a typical searcher; easy to flip per
+// affiliate economics by changing winnerId + the verdict framing.
+
+const himsKeepsBattle: BattleData = {
+  slug: "hims-vs-keeps",
+  provider1Id: "hims",
+  provider2Id: "keeps",
+  title: "Hims vs Keeps: Which Hair Loss Treatment Wins in 2026?",
+  subtitle: "Hims vs Keeps, compared on price, treatments, and overall value — to see which men's hair loss service comes out ahead.",
+  description: "Hims vs Keeps compared on price, finasteride & minoxidil options, and value. Keeps is cheaper and hair-loss-focused; Hims offers more products and a 2-in-1 spray. See which wins in 2026.",
+  intro: "Hims and Keeps are two of the most popular telehealth services for men's hair loss, and both are built on the same proven medications — finasteride and minoxidil — prescribed after an online doctor consult. Keeps is laser-focused on hair loss and priced to be affordable, while Hims offers a broader range including a combined finasteride + minoxidil spray, a DHT-blocking shampoo, and supplements. Here's how they compare.",
+  verdict: "Both are legitimate, well-run services built on the same core medications — but Hims takes this one for most people on range and convenience. It offers the widest set of treatments, a 2-in-1 spray that simplifies your routine, and a polished, trusted platform. Keeps is the better pick if your priority is the lowest price on a focused finasteride + minoxidil routine.",
+  verdictWinnerPoints: [
+    "Widest range — 2-in-1 spray, shampoo, supplements & more",
+    "Combined finasteride + minoxidil topical spray",
+    "Polished, well-known consumer brand",
+  ],
+  verdictLoserPoints: [
+    "Among the most affordable options",
+    "Single-minded focus on men's hair loss",
+    "Simple, no-frills subscription",
+  ],
+  winnerId: "hims",
+  categories: [
+    {
+      name: "Pricing & Value",
+      winner: "provider2",
+      explanation: "Keeps is built around affordability — generic finasteride starts around $25/month and minoxidil around $15/month. Hims is competitively priced with bundles and intro offers, but Keeps generally comes in a little lower for the core routine.",
+      supportingPoints: [
+        "Generic finasteride from ~$25/mo (Keeps)",
+        "Minoxidil from ~$15/mo (Keeps)",
+        "Bundles and intro offers (Hims)",
+        "No insurance required (both)",
+      ],
+    },
+    {
+      name: "Treatment Range",
+      winner: "provider1",
+      explanation: "Hims offers the broader lineup — oral finasteride, topical and oral minoxidil, a combined spray, a DHT-blocking shampoo, biotin gummies, and thickening products. Keeps keeps it focused on finasteride, minoxidil, and a ketoconazole shampoo.",
+      supportingPoints: [
+        "Finasteride, minoxidil, spray, shampoo, supplements (Hims)",
+        "Combined 2-in-1 topical spray (Hims)",
+        "Finasteride, minoxidil, ketoconazole shampoo (Keeps)",
+        "Rx after an online consult (both)",
+      ],
+    },
+    {
+      name: "Convenience & Routine",
+      winner: "provider1",
+      explanation: "Hims's 2-in-1 finasteride + minoxidil spray combines two treatments into one daily step, which many users find easier to stick with. Keeps uses separate finasteride and minoxidil products.",
+      supportingPoints: [
+        "2-in-1 spray = one daily step (Hims)",
+        "Broad product ecosystem (Hims)",
+        "Separate finasteride + minoxidil (Keeps)",
+        "Discreet home delivery (both)",
+      ],
+    },
+    {
+      name: "Focus",
+      winner: "provider2",
+      explanation: "Keeps does one thing — men's hair loss — with no unrelated products or upsells, which keeps the experience simple. Hims spans many categories beyond hair, which adds range but also cross-sells.",
+      supportingPoints: [
+        "Hair-loss-only, no unrelated upsells (Keeps)",
+        "Simple, focused experience (Keeps)",
+        "Broad multi-category platform (Hims)",
+        "Licensed provider oversight (both)",
+      ],
+    },
+    {
+      name: "Brand & Platform",
+      winner: "provider1",
+      explanation: "Hims is a large, publicly traded consumer brand with a highly polished app and site. Keeps is a well-regarded hair-loss specialist (part of Thirty Madison) but a smaller name overall.",
+      supportingPoints: [
+        "Large, well-known consumer brand (Hims)",
+        "Polished app and experience (Hims)",
+        "Respected hair-loss specialist (Keeps)",
+        "Established telehealth operations (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Starting Price", provider1Value: "Competitive, bundles & intro offers", provider2Value: "From ~$25/mo finasteride", highlight: "provider2" },
+    { feature: "Core Medications", provider1Value: "Finasteride & minoxidil", provider2Value: "Finasteride & minoxidil", highlight: "both" },
+    { feature: "Combined Spray", provider1Value: "2-in-1 finasteride + minoxidil", provider2Value: "Separate products", highlight: "provider1" },
+    { feature: "Extras", provider1Value: "Shampoo, gummies, thickeners", provider2Value: "Ketoconazole shampoo", highlight: "provider1" },
+    { feature: "Focus", provider1Value: "Broad men's health", provider2Value: "Hair loss only", highlight: "provider2" },
+    { feature: "Consultation", provider1Value: "100% online", provider2Value: "100% online", highlight: "both" },
+  ],
+};
+
+const himsRomanBattle: BattleData = {
+  slug: "hims-vs-roman",
+  provider1Id: "hims",
+  provider2Id: "roman",
+  title: "Hims vs Roman: Which Hair Loss Service Wins in 2026?",
+  subtitle: "Hims vs Roman, compared on treatments, medical model, and value — to see which men's hair loss service comes out ahead.",
+  description: "Hims vs Roman compared on hair loss treatments, clinician support, and value. Hims has the wider product range; Roman offers clinician-guided care from the Ro platform. See which wins in 2026.",
+  intro: "Hims and Roman are two big names in men's telehealth, and both prescribe the proven hair loss medications — finasteride and minoxidil — after an online visit. Hims leans into a broad product range and a combined spray, while Roman (the men's-health brand from Ro) emphasizes clinician-guided care on an established platform. Here's how they compare.",
+  verdict: "Both are credible, well-run services — but Hims edges ahead for most people on range and convenience. It offers more treatment options, a 2-in-1 spray, and a polished experience. Roman is the better pick if you value clinician-guided care and the credibility of the Ro platform, especially if you already use Ro for other men's-health needs.",
+  verdictWinnerPoints: [
+    "Broader treatment range and add-ons",
+    "2-in-1 finasteride + minoxidil spray",
+    "Polished, well-known consumer brand",
+  ],
+  verdictLoserPoints: [
+    "Clinician-guided care from the Ro platform",
+    "Streamlined, trusted telehealth experience",
+    "Strong brand credibility",
+  ],
+  winnerId: "hims",
+  categories: [
+    {
+      name: "Treatment Range",
+      winner: "provider1",
+      explanation: "Hims offers a wider lineup — finasteride, minoxidil, a combined spray, DHT-blocking shampoo, and supplements. Roman focuses on the core finasteride and minoxidil options with a clean, guided process.",
+      supportingPoints: [
+        "Spray, shampoo, supplements & more (Hims)",
+        "2-in-1 combined spray (Hims)",
+        "Finasteride & minoxidil, guided (Roman)",
+        "Rx after online consult (both)",
+      ],
+    },
+    {
+      name: "Convenience & Routine",
+      winner: "provider1",
+      explanation: "Hims's 2-in-1 spray combines two treatments into a single daily step. Both ship discreetly to your door, but Hims's product ecosystem makes it easy to add supporting products.",
+      supportingPoints: [
+        "2-in-1 spray = one step (Hims)",
+        "Easy to add supporting products (Hims)",
+        "Clean, streamlined flow (Roman)",
+        "Discreet delivery (both)",
+      ],
+    },
+    {
+      name: "Medical Model",
+      winner: "provider2",
+      explanation: "Roman emphasizes clinician-guided care with licensed providers reviewing every plan on the established Ro platform. Hims also uses licensed providers, but Roman leans harder into the guided, medical experience.",
+      supportingPoints: [
+        "Clinician-guided from the Ro platform (Roman)",
+        "Licensed providers review every plan (Roman)",
+        "Licensed provider oversight (Hims)",
+        "Ongoing adjustments (both)",
+      ],
+    },
+    {
+      name: "Pricing & Value",
+      winner: "tie",
+      explanation: "Both use subscription pricing that's broadly in line for finasteride and minoxidil, with discounts on longer plans. Neither is a clear budget leader; the value difference comes down to which extras you actually want.",
+      supportingPoints: [
+        "Comparable subscription pricing (both)",
+        "Discounts on longer plans (both)",
+        "No insurance required (both)",
+        "Value depends on chosen extras",
+      ],
+    },
+    {
+      name: "Brand & Platform",
+      winner: "provider1",
+      explanation: "Hims is a large, publicly traded consumer brand with a highly polished experience. Roman is well-established too, backed by Ro, but Hims has the broader consumer footprint.",
+      supportingPoints: [
+        "Large publicly traded brand (Hims)",
+        "Highly polished app & site (Hims)",
+        "Backed by the Ro platform (Roman)",
+        "Established operations (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Core Medications", provider1Value: "Finasteride & minoxidil", provider2Value: "Finasteride & minoxidil", highlight: "both" },
+    { feature: "Combined Spray", provider1Value: "2-in-1 finasteride + minoxidil", provider2Value: "Separate products", highlight: "provider1" },
+    { feature: "Extras", provider1Value: "Shampoo, gummies, thickeners", provider2Value: "Focused core lineup", highlight: "provider1" },
+    { feature: "Medical Model", provider1Value: "Licensed provider oversight", provider2Value: "Clinician-guided (Ro platform)", highlight: "provider2" },
+    { feature: "Shipping", provider1Value: "Discreet home delivery", provider2Value: "Discreet, free shipping", highlight: "both" },
+    { feature: "Consultation", provider1Value: "100% online", provider2Value: "100% online", highlight: "both" },
+  ],
+};
+
+const keepsRomanBattle: BattleData = {
+  slug: "keeps-vs-roman",
+  provider1Id: "keeps",
+  provider2Id: "roman",
+  title: "Keeps vs Roman: Which Men's Hair Loss Service Wins in 2026?",
+  subtitle: "Keeps vs Roman, compared on price, focus, and platform — to see which men's hair loss service comes out ahead.",
+  description: "Keeps vs Roman compared on price, hair loss focus, and platform. Keeps is cheaper and hair-loss-focused; Roman offers clinician-guided care from the Ro platform. See which wins in 2026.",
+  intro: "Keeps and Roman both prescribe the proven hair loss medications — finasteride and minoxidil — to men after an online consult, but they take different approaches. Keeps is a hair-loss specialist built around affordability, while Roman brings clinician-guided care and the credibility of the established Ro platform. Here's how they compare.",
+  verdict: "Both are legitimate men's hair loss services — but Keeps takes this one on price and focus. It's built specifically around affordable men's hair loss, with generic finasteride and minoxidil and a simple subscription. Roman is the better pick if you value clinician-guided care and a broader, established men's-health platform.",
+  verdictWinnerPoints: [
+    "Among the most affordable options",
+    "Single-minded focus on men's hair loss",
+    "Simple, no-frills subscription",
+  ],
+  verdictLoserPoints: [
+    "Clinician-guided care from the Ro platform",
+    "Broader, established men's-health brand",
+    "Streamlined, polished experience",
+  ],
+  winnerId: "keeps",
+  categories: [
+    {
+      name: "Pricing & Value",
+      winner: "provider1",
+      explanation: "Keeps is priced for affordability — generic finasteride from around $25/month and minoxidil from around $15/month. Roman's pricing is transparent but generally runs a bit higher for the core routine.",
+      supportingPoints: [
+        "Generic finasteride from ~$25/mo (Keeps)",
+        "Minoxidil from ~$15/mo (Keeps)",
+        "Transparent but higher pricing (Roman)",
+        "No insurance required (both)",
+      ],
+    },
+    {
+      name: "Focus",
+      winner: "provider1",
+      explanation: "Keeps is a dedicated hair-loss service with no unrelated products. Roman covers a broad range of men's-health needs, which adds range but less single-minded focus on hair.",
+      supportingPoints: [
+        "Hair-loss-only specialist (Keeps)",
+        "No unrelated upsells (Keeps)",
+        "Broad men's-health platform (Roman)",
+        "Licensed provider oversight (both)",
+      ],
+    },
+    {
+      name: "Medical Model",
+      winner: "provider2",
+      explanation: "Roman emphasizes clinician-guided care with licensed providers reviewing every plan on the established Ro platform. Keeps also uses licensed physicians, but Roman leans harder into the guided experience.",
+      supportingPoints: [
+        "Clinician-guided from the Ro platform (Roman)",
+        "Licensed providers review every plan (Roman)",
+        "Licensed physician oversight (Keeps)",
+        "Ongoing support (both)",
+      ],
+    },
+    {
+      name: "Medications",
+      winner: "tie",
+      explanation: "Both offer the core proven treatments — finasteride and minoxidil — prescribed after an online consult. Neither is limited to a single option for men's hair loss.",
+      supportingPoints: [
+        "Oral finasteride (both)",
+        "Topical minoxidil (both)",
+        "Combined routines available (both)",
+        "Rx after online review (both)",
+      ],
+    },
+    {
+      name: "Simplicity",
+      winner: "provider1",
+      explanation: "Keeps offers a simple, focused signup and subscription centered on hair. Roman's broader platform is polished but covers more than hair, which can be more than a hair-only shopper needs.",
+      supportingPoints: [
+        "Simple, hair-focused signup (Keeps)",
+        "No-frills subscription (Keeps)",
+        "Polished but broader platform (Roman)",
+        "Discreet delivery (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Starting Price", provider1Value: "From ~$25/mo finasteride", provider2Value: "Transparent, generally higher", highlight: "provider1" },
+    { feature: "Focus", provider1Value: "Hair loss only", provider2Value: "Broad men's health", highlight: "provider1" },
+    { feature: "Core Medications", provider1Value: "Finasteride & minoxidil", provider2Value: "Finasteride & minoxidil", highlight: "both" },
+    { feature: "Medical Model", provider1Value: "Licensed physician oversight", provider2Value: "Clinician-guided (Ro platform)", highlight: "provider2" },
+    { feature: "Shipping", provider1Value: "Discreet home delivery", provider2Value: "Discreet, free shipping", highlight: "both" },
+    { feature: "Consultation", provider1Value: "100% online", provider2Value: "100% online", highlight: "both" },
+  ],
+};
+
+const himsHappyheadBattle: BattleData = {
+  slug: "hims-vs-happy-head",
+  provider1Id: "hims",
+  provider2Id: "happyhead",
+  matchupLabel: "Hims vs Happy Head",
+  title: "Hims vs Happy Head: Which Hair Loss Treatment Wins in 2026?",
+  subtitle: "Hims vs Happy Head, compared on price, personalization, and who they treat — to see which hair loss service comes out ahead.",
+  description: "Hims vs Happy Head compared on price, custom formulas, and value. Hims is broad and affordable; Happy Head offers dermatologist-formulated custom Rx for men and women. See which wins in 2026.",
+  intro: "Hims and Happy Head take different approaches to hair loss. Hims is a broad, affordable men's platform built on standard finasteride and minoxidil plus supporting products. Happy Head is dermatologist-founded and formulates custom-compounded prescriptions — topical blends and oral options — tailored to your pattern of loss, for both men and women. Here's how they compare.",
+  verdict: "Both are legitimate, effective options — but Hims takes this one for most people on price and convenience. It's more affordable, widely available, and easy to start. Happy Head is the better pick if you want a dermatologist-designed custom formula, haven't responded to standard treatments, or are a woman seeking prescription hair loss care.",
+  verdictWinnerPoints: [
+    "More affordable, easy-to-start plans",
+    "Broad product range plus a 2-in-1 spray",
+    "Large, well-known consumer brand",
+  ],
+  verdictLoserPoints: [
+    "Dermatologist-formulated custom compounds",
+    "Personalized topical + oral formulas",
+    "Treats both men and women",
+  ],
+  winnerId: "hims",
+  categories: [
+    {
+      name: "Pricing & Value",
+      winner: "provider1",
+      explanation: "Hims is more affordable — standard finasteride and minoxidil start low, with bundles and intro offers. Happy Head's custom-compounded formulas sit at the premium end (roughly $35-$79/month), reflecting the personalized approach.",
+      supportingPoints: [
+        "Standard finasteride/minoxidil, low entry (Hims)",
+        "Bundles and intro offers (Hims)",
+        "Premium custom formulas ~$35-$79/mo (Happy Head)",
+        "No insurance required (both)",
+      ],
+    },
+    {
+      name: "Personalization",
+      winner: "provider2",
+      explanation: "Happy Head formulates custom-compounded topicals that can combine minoxidil, finasteride, and additional actives tuned to your hair loss pattern — plus oral options. Hims offers proven standard treatments rather than bespoke compounds.",
+      supportingPoints: [
+        "Custom multi-ingredient topicals (Happy Head)",
+        "Dermatologist-designed formulas (Happy Head)",
+        "Standard proven treatments (Hims)",
+        "Rx after online review (both)",
+      ],
+    },
+    {
+      name: "Who They Treat",
+      winner: "provider2",
+      explanation: "Happy Head treats both men and women, and offers options for people who haven't responded to standard finasteride/minoxidil. Hims's hair line (including finasteride) is men-only.",
+      supportingPoints: [
+        "Treats men and women (Happy Head)",
+        "Options beyond standard routines (Happy Head)",
+        "Men-only hair line (Hims)",
+        "Licensed provider oversight (both)",
+      ],
+    },
+    {
+      name: "Convenience & Brand",
+      winner: "provider1",
+      explanation: "Hims is a large, polished, widely recognized brand with a fast signup and a broad product ecosystem. Happy Head's custom formulas take longer to prepare and ship, reflecting the compounding step.",
+      supportingPoints: [
+        "Large, recognized brand (Hims)",
+        "Fast signup, broad ecosystem (Hims)",
+        "Custom compounding takes longer (Happy Head)",
+        "Discreet delivery (both)",
+      ],
+    },
+    {
+      name: "Proven Medications",
+      winner: "tie",
+      explanation: "Both are built on the evidence-backed actives — finasteride and minoxidil. Hims delivers them in standard forms; Happy Head blends them (and more) into custom formulas.",
+      supportingPoints: [
+        "Finasteride & minoxidil (both)",
+        "Standard forms (Hims)",
+        "Custom blends with extra actives (Happy Head)",
+        "Prescription after review (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Starting Price", provider1Value: "Low entry, bundles & offers", provider2Value: "Premium custom (~$35-$79/mo)", highlight: "provider1" },
+    { feature: "Formulas", provider1Value: "Standard finasteride & minoxidil", provider2Value: "Custom-compounded topical + oral", highlight: "provider2" },
+    { feature: "Treats Women", provider1Value: "Men-only hair line", provider2Value: "Men and women", highlight: "provider2" },
+    { feature: "Personalization", provider1Value: "Proven standard options", provider2Value: "Dermatologist-designed, tailored", highlight: "provider2" },
+    { feature: "Brand & Speed", provider1Value: "Large brand, fast start", provider2Value: "Custom formulas ship slower", highlight: "provider1" },
+    { feature: "Consultation", provider1Value: "100% online", provider2Value: "100% online", highlight: "both" },
+  ],
+};
+
 function buildInitialConfig(): SiteConfig {
   return {
     ...defaultConfig,
@@ -313,7 +666,7 @@ function buildInitialConfig(): SiteConfig {
     faqs: faqsJson,
     reviews: defaultReviews,
     articles: defaultArticlesData,
-    battles: [],
+    battles: [himsKeepsBattle, himsRomanBattle, keepsRomanBattle, himsHappyheadBattle],
     sidebars: [
       {
         id: "articles-default",
