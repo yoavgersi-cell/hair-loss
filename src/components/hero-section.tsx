@@ -25,7 +25,7 @@ export function HeroSection({
   maxTextWidth = "640px",
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full h-[200px] sm:h-[270px] lg:h-[300px] overflow-hidden bg-[#f5f5f7]">
+    <section className="relative w-full h-[230px] sm:h-[360px] lg:h-[420px] overflow-hidden bg-[#f5f5f7]">
       {/* Hero image — full-bleed background (desktop only; mobile shows the solid bg) */}
       <div className="absolute inset-0 hidden sm:block">
         <Image
