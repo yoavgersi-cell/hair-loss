@@ -16,86 +16,74 @@ export const revalidate = 60;
 // Code-controlled (not CMS-merged) so they reliably target trending queries —
 // e.g. surging "embody reviews" and "embody glp1".
 const REVIEW_SEO_OVERRIDES: Record<string, { title: string; description: string }> = {
-  embody: {
-    title: "embody Reviews 2026: GLP-1 Cost, Real Results & Is It Worth It?",
+  hims: {
+    title: "Hims Hair Loss Review 2026: Cost, Treatments & Is It Legit?",
     description:
-      "embody GLP-1 reviews: compounded semaglutide from $69/mo and tirzepatide from $119/mo, shipped in 1-2 days with no insurance. Real customer reviews, pricing, pros & cons, and whether embody is worth it.",
+      "Hims hair loss reviews: Rx finasteride & minoxidil, a 2-in-1 spray, and supporting products from ~$20/mo. Is Hims legit and worth it? Real cost, pros & cons, and verdict.",
   },
-  medvi: {
-    title: "Medvi Reviews 2026: Is It Legit? Cost, Real Results & Verdict",
+  keeps: {
+    title: "Keeps Reviews 2026: Cost, Hair Loss Treatments & Is It Legit?",
     description:
-      "Medvi weight loss reviews: transparent, all-inclusive GLP-1 pricing and the personal provider support customers rave about on Trustpilot. Is Medvi legit and worth it? Real customer reviews, cost, pros & cons.",
+      "Keeps reviews: affordable, hair-loss-focused finasteride & minoxidil from ~$25/mo with online doctor consults. Is Keeps legit and worth it? Real cost, pros & cons, and verdict.",
   },
-  altrx: {
-    title: "altRx Reviews 2026: Is It Legit? GLP-1 Cost, Results & Verdict",
+  roman: {
+    title: "Roman Hair Loss Review 2026: Cost, Treatments & Is It Legit?",
     description:
-      "altRx reviews: compounded semaglutide from $89/mo and tirzepatide from $149/mo, brand-name Zepbound & Wegovy too, no insurance and Buy Now Pay Later. Is altRx legit and worth it? Real customer reviews, pricing, pros & cons.",
+      "Roman (from Ro) hair loss reviews: clinician-guided finasteride & minoxidil with discreet delivery. Is Roman legit and worth it? Real cost, pros & cons, and verdict.",
   },
-  trimrx: {
-    title: "TrimRX Reviews 2026: Is It Legit? Cost, Real Results & Verdict",
+  happyhead: {
+    title: "Happy Head Reviews 2026: Custom Hair Loss Rx, Cost & Is It Legit?",
     description:
-      "TrimRX reviews: budget-friendly compounded semaglutide and tirzepatide, flexible plans with no long-term contract, and clinical support included. Is TrimRX legit and worth it? Real customer reviews, cost, pros & cons.",
+      "Happy Head reviews: dermatologist-formulated custom finasteride & minoxidil for men and women, from ~$35/mo. Is Happy Head legit and worth it? Real cost, pros & cons, and verdict.",
   },
 };
 
 // "Is [brand] legit?" trust block — targets the high-intent "is X legit" query
-// cluster inside the existing review page (no separate page → no cannibalization).
-// Only defined for providers where the legitimacy signals are genuinely verifiable;
-// each signal is grounded in that provider's real credentials/practices.
+// cluster inside the existing review page. Grounded in each provider's real
+// credentials/practices; only defined for providers with verifiable signals.
 const REVIEW_LEGIT: Record<string, { verdict: string; signals: string[] }> = {
-  embody: {
+  hims: {
     verdict:
-      "Yes — embody is a legitimate, US-based telehealth weight-loss provider. It's LegitScript-certified, works with US-based state-licensed 503A compounding pharmacies, and connects you with state-licensed doctors overseen by its own medical director.",
+      "Yes — Hims is a legitimate, publicly traded telehealth company. Hair loss prescriptions like finasteride and minoxidil are written by licensed providers after an online consultation and filled by licensed pharmacies, then shipped discreetly to your door.",
     signals: [
-      "LegitScript-certified telehealth provider",
-      "US-based, state-licensed 503A compounding pharmacies",
-      "State-licensed doctors, a medical director, and a nursing team",
-      "Transparent flat pricing — $69/mo semaglutide, $119 tirzepatide",
-      "Full refund if you're not approved",
-    ],
-  },
-  altrx: {
-    verdict:
-      "Yes — altRx is a legitimate self-pay telehealth service. A licensed provider (physician, PA, or nurse practitioner) reviews your assessment before any prescription is issued, and medication is filled by a licensed pharmacy.",
-    signals: [
-      "Licensed providers review every assessment (physician, PA, or NP)",
+      "Licensed providers prescribe after an online consult",
       "Prescriptions filled by licensed pharmacies",
-      "Transparent, flat pricing — no hidden fees, no insurance required",
-      "No long-term contract; pause or cancel anytime",
-      "Buy Now, Pay Later available",
+      "Large, publicly traded telehealth company (NYSE: HIMS)",
+      "FDA-approved medications (finasteride, minoxidil)",
+      "Discreet packaging and flexible subscription",
     ],
   },
-  trimrx: {
+  keeps: {
     verdict:
-      "Yes — TrimRX is a legitimate telehealth GLP-1 provider. Licensed clinicians guide treatment, medications are compounded semaglutide and tirzepatide prescribed after a medical review, and pricing is transparent with no long-term contract.",
+      "Yes — Keeps is a legitimate men's hair loss service (part of Thirty Madison). Treatment is prescribed by licensed physicians after an online consultation and shipped discreetly, with a focus on affordable, evidence-based care.",
     signals: [
-      "Licensed clinical guidance throughout treatment",
-      "Compounded semaglutide & tirzepatide, prescribed after review",
-      "Transparent, competitive pricing with multi-month discounts",
-      "No long-term contract required",
-      "100% online — no clinic visit needed",
+      "Licensed physicians review every treatment plan",
+      "Established brand (part of Thirty Madison)",
+      "FDA-approved finasteride & minoxidil",
+      "Hair-loss-focused, transparent pricing",
+      "Discreet home delivery",
     ],
   },
-  medvi: {
+  roman: {
     verdict:
-      "Yes — Medvi is a legitimate medical weight-loss platform. Prescriptions are overseen by licensed providers with regular monitoring, and its pricing is transparent and all-inclusive with no surprise charges.",
+      "Yes — Roman is a legitimate men's-health brand from Ro, an established telehealth company. Hair loss treatment is clinician-guided, with licensed providers reviewing every plan before prescribing, and shipped discreetly.",
     signals: [
-      "Prescription treatment overseen by licensed providers",
-      "Regular monitoring and provider check-ins",
-      "Transparent, all-inclusive pricing — no surprise charges",
-      "Highly rated, personal service on Trustpilot",
-      "100% online — no clinic visit required",
+      "Licensed providers review every plan",
+      "Backed by the established Ro telehealth platform",
+      "FDA-approved finasteride & minoxidil",
+      "Discreet packaging with free shipping",
+      "Ongoing provider support",
     ],
   },
-  wellmedr: {
+  happyhead: {
     verdict:
-      "Yes — WellMedr is a legitimate telehealth platform. Board-certified specialists tailor your plan, and medications are made in US state-licensed pharmacies following FDA compounding standards after a medical review.",
+      "Yes — Happy Head is a legitimate, dermatologist-founded telehealth service. Its custom hair loss formulas are prescribed by licensed providers and made by licensed compounding pharmacies, for both men and women.",
     signals: [
-      "Board-certified specialists tailor your treatment plan",
-      "US state-licensed pharmacies following FDA compounding standards",
-      "Real medical intake reviewed before prescribing",
-      "100% online — message your provider anytime",
-      "Discreet, unbranded packaging",
+      "Founded and formulated by board-certified dermatologists",
+      "Licensed providers prescribe after review",
+      "Custom formulas from licensed compounding pharmacies",
+      "Treats both men and women",
+      "Personalized to your hair loss pattern",
     ],
   },
 };

@@ -33,11 +33,11 @@ export default async function ArticlesPage() {
 
   // Standalone in-depth guide pages (custom layouts, not CMS articles)
   const guides = [
-    { title: "Weight Loss Pills", href: "/weight-loss-pills", category: "Guide", description: "Oral GLP-1s and FDA-approved prescription pills — and how they compare to injections." },
-    { title: "GLP-1 Pills vs Injections", href: "/glp1-pills-vs-injections", category: "Guide", description: "Results, cost, and convenience compared — which is right for you?" },
-    { title: "Ozempic, Wegovy & Mounjaro Alternatives", href: "/ozempic-alternatives", category: "Guide", description: "The same active ingredients as the big brands — as affordable compounded options through telehealth." },
-    { title: "Retatrutide for Weight Loss", href: "/retatrutide-weight-loss", category: "Science", description: "The triple-agonist drug that hit ~24% in trials — and whether you can get it yet." },
-    { title: "GLP-1 Weight Loss Statistics", href: "/glp1-weight-loss-statistics", category: "Science", description: "Key clinical trial data on how much weight GLP-1 medications produce." },
+    { title: "Finasteride vs Minoxidil", href: "/articles/finasteride-vs-minoxidil", category: "Comparison", description: "The two proven treatments compared — how they work, and why many people use both." },
+    { title: "Does Finasteride Work?", href: "/articles/does-finasteride-work", category: "Science", description: "The evidence, the timeline, and what results to realistically expect." },
+    { title: "How Much Does Treatment Cost?", href: "/articles/hair-loss-treatment-cost", category: "Guide", description: "From cheap generics to premium custom formulas — real telehealth pricing." },
+    { title: "Male Pattern Baldness Explained", href: "/articles/male-pattern-baldness-explained", category: "Science", description: "What causes it, how it progresses, and what actually stops it." },
+    { title: "Women's Hair Loss Treatment", href: "/articles/womens-hair-loss-treatment", category: "Guide", description: "What's safe, what's effective, and where finasteride fits (and doesn't)." },
   ];
 
   // Head-to-head comparison (battle) pages, with both providers resolved
