@@ -270,23 +270,23 @@ export const defaultConfig: SiteConfig = {
     "Some providers featured on this site may compensate us. This may affect the order and placement of listings but does not influence our editorial ratings or reviews.",
   hero: {
     backgroundImageUrl: "/hero.png",
-    imageAlt: "Weight loss medications",
-    updatedLabel: "Last Updated: July 2026",
-    h1: "Best Weight Loss Injections & Programs of 2026",
-    h2: "Compare the top GLP-1 weight loss providers, side by side",
+    imageAlt: "Hair loss treatments",
+    updatedLabel: "Last Updated: Aug 2026",
+    h1: "Best Hair Loss Treatments & Providers of 2026",
+    h2: "Compare the top hair loss providers, side by side",
     description:
-      "Compare the best weight loss injections and programs — pricing, medications, medical support, and overall value — to find the provider that best fits your goals.",
+      "Compare the best hair loss treatments and telehealth providers — pricing, finasteride and minoxidil options, medical support, and overall value — to find the provider that best fits your needs.",
   },
   sidebar: {
     socialProofNumber: "18,400+",
     socialProofText:
-      "people compared weight loss programs on our platform this month.",
+      "people compared hair loss providers on our platform this month.",
     secureTitle: "Secure & Confidential",
     secureText:
       "All providers featured on our platform use secure systems to protect your personal information.",
     featuredImageUrl: "/sidebar-featured.png",
     featuredImageAlt:
-      "ALT RX — Physician-guided GLP-1 weight loss treatment",
+      "Top-rated hair loss treatment provider",
     featuredImageLink: "#",
   },
   ranking: {
@@ -312,12 +312,12 @@ export const defaultConfig: SiteConfig = {
   landingPages: [],
   sidebars: [],
   quiz: {
-    welcomeTitle: "Find Your Best Weight Loss Provider Match",
-    welcomeSubtitle: "Answer a few quick questions and we'll compare trusted weight loss providers based on your goals, preferences, and location.",
+    welcomeTitle: "Find Your Best Hair Loss Provider Match",
+    welcomeSubtitle: "Answer a few quick questions and we'll compare trusted hair loss providers based on your goals, preferences, and location.",
     welcomeTrustPoints: ["Takes less than 1 minute", "Personalized provider recommendations", "Completely free"],
     welcomeCta: "Find My Match",
     midFlowMessage: "Great, we're narrowing down the best options for you.",
-    pageTitle: "Find Your Weight Loss Provider Match",
+    pageTitle: "Find Your Hair Loss Provider Match",
     pageSubtitle: "Answer a few quick questions to help us compare providers based on your goals, treatment preferences, and availability in your area.",
     resultsTitle: "Your Best Match",
     resultsSubtitle: "Based on your answers, this provider is the strongest fit for your goals and preferences.",

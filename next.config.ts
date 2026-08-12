@@ -13,16 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Consolidate duplicate comparison URLs onto the canonical (stronger) page.
-  async redirects() {
-    return [
-      {
-        source: "/embody-vs-altrx",
-        destination: "/altrx-vs-embody",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;

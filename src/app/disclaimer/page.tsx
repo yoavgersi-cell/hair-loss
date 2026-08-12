@@ -28,8 +28,8 @@ export default function DisclaimerPage() {
           Affiliate Relationships
         </h2>
         <p>
-          TopHairLoss participates in affiliate programs with various weight loss
-          medication providers and telehealth platforms. This means we may earn
+          TopHairLoss participates in affiliate programs with various hair loss
+          treatment providers and telehealth platforms. This means we may earn
           referral fees when visitors click through our links and complete
           qualifying actions. These relationships help support the operation of
           this website.
@@ -50,10 +50,11 @@ export default function DisclaimerPage() {
         </h2>
         <p>
           The content on TopHairLoss is for informational purposes only and is not
-          intended as medical advice. Weight loss medications carry potential
-          risks and side effects. Always consult with a licensed healthcare
-          professional before making decisions about your health or starting
-          any medication.
+          intended as medical advice. Hair loss medications carry potential
+          risks and side effects — finasteride, for example, is for men only and
+          must not be handled or taken by women who are or may become pregnant.
+          Always consult with a licensed healthcare professional before making
+          decisions about your health or starting any medication.
         </p>
 
         <h2 className="pt-4 text-xl font-semibold text-[#191919]">

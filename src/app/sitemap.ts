@@ -29,42 +29,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/find-your-match-weight-loss`,
-      lastModified: FALLBACK_DATE,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/weight-loss-pills`,
-      lastModified: FALLBACK_DATE,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/glp1-pills-vs-injections`,
-      lastModified: FALLBACK_DATE,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/retatrutide-weight-loss`,
-      lastModified: FALLBACK_DATE,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/ozempic-alternatives`,
-      lastModified: FALLBACK_DATE,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/glp1-weight-loss-statistics`,
-      lastModified: FALLBACK_DATE,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: `${BASE_URL}/how-we-rank`,
       lastModified: FALLBACK_DATE,
       changeFrequency: "monthly",

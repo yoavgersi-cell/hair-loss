@@ -17,30 +17,30 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tophairloss.io"),
   title: {
-    default: "Top Weight Loss Providers 2026 — Compare Trusted Providers Side by Side | tophairloss.io",
+    default: "Top Hair Loss Providers 2026 — Compare Trusted Treatments Side by Side | tophairloss.io",
     template: "%s | tophairloss.io",
   },
   icons: {
     icon: "/favicon.png",
   },
   description:
-    "Compare pricing, medications, medical support, and overall value across the top weight loss providers of 2026. Find the provider that best fits your goals.",
+    "Compare pricing, treatments, medical support, and overall value across the top hair loss providers of 2026. Find the finasteride, minoxidil, or custom treatment that best fits your needs.",
   keywords: [
-    "weight loss programs",
-    "GLP-1 weight loss",
-    "semaglutide providers",
-    "tirzepatide weight loss",
-    "best weight loss medication 2026",
-    "telehealth weight loss",
-    "compare weight loss providers",
-    "medical weight loss online",
-    "ozempic alternatives",
-    "wegovy alternatives",
+    "hair loss treatment",
+    "best hair loss providers",
+    "finasteride online",
+    "minoxidil online",
+    "hims vs keeps",
+    "telehealth hair loss",
+    "compare hair loss providers",
+    "hair loss treatment online",
+    "men's hair loss treatment",
+    "prescription hair loss treatment",
   ],
   openGraph: {
-    title: "Top Weight Loss Providers 2026 — Compare Trusted Providers Side by Side",
+    title: "Top Hair Loss Providers 2026 — Compare Trusted Treatments Side by Side",
     description:
-      "Compare pricing, medications, medical support, and overall value across the top weight loss providers of 2026.",
+      "Compare pricing, treatments, medical support, and overall value across the top hair loss providers of 2026.",
     type: "website",
     siteName: "tophairloss.io",
     locale: "en_US",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Weight Loss Providers 2026 — Compare Trusted Providers Side by Side",
+    title: "Top Hair Loss Providers 2026 — Compare Trusted Treatments Side by Side",
     description:
-      "Compare pricing, medications, medical support, and overall value across the top weight loss providers of 2026.",
+      "Compare pricing, treatments, medical support, and overall value across the top hair loss providers of 2026.",
   },
   other: {
     "geo.region": "US",
@@ -98,7 +98,7 @@ export default function RootLayout({
               url: "https://www.tophairloss.io",
               areaServed: { "@type": "Country", name: "United States" },
               logo: "https://www.tophairloss.io/favicon.png",
-              description: "Compare the top weight loss providers offering GLP-1 medications like semaglutide and tirzepatide. Expert reviews, pricing comparisons, and personalized provider matching.",
+              description: "Compare the top hair loss providers offering finasteride, minoxidil, and custom treatments. Expert reviews, pricing comparisons, and personalized provider matching.",
               sameAs: [],
             }),
           }}
@@ -111,7 +111,7 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "tophairloss.io",
               url: "https://www.tophairloss.io",
-              description: "Compare trusted weight loss providers side by side",
+              description: "Compare trusted hair loss providers side by side",
               potentialAction: {
                 "@type": "SearchAction",
                 target: {

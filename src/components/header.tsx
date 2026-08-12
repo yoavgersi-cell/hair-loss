@@ -23,9 +23,6 @@ export function Header() {
           <Link href="/reviews" className="hover:text-[#0C4B75] transition-colors">
             Reviews
           </Link>
-          <Link href="/weight-loss-pills" className="hover:text-[#0C4B75] transition-colors">
-            Pills
-          </Link>
           <Link href="/articles" className="hover:text-[#0C4B75] transition-colors">
             Articles
           </Link>
@@ -52,9 +49,6 @@ export function Header() {
           </Link>
           <Link href="/reviews" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
             Reviews
-          </Link>
-          <Link href="/weight-loss-pills" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
-            Pills
           </Link>
           <Link href="/articles" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
             Articles

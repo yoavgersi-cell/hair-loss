@@ -1,19 +1,19 @@
 import Link from "next/link";
 
-const tirzVsSemaRows: [string, string, string][] = [
-  ["Average Weight Loss in Trials", "~15.0%–20.9% average loss at 72 weeks (SURMOUNT)", "~14.9% mean loss at 68 weeks (STEP)"],
-  ["FDA Approval Status", "FDA-approved for chronic weight management (Zepbound®); also approved for type 2 diabetes as Mounjaro®", "FDA-approved for chronic weight management (Wegovy®); also approved for type 2 diabetes as Ozempic®"],
-  ["Dosing Schedule", "Weekly injection", "Weekly injection"],
-  ["Best For", "Patients seeking greater average weight loss observed in clinical trials, when appropriate", "Patients seeking an FDA-approved GLP-1 therapy with extensive long-term safety and outcomes data"],
-  ["Insurance Coverage", "May not always be covered by insurance yet", "Coverage varies; may be available on more formularies depending on insurer"],
+const finVsMinRows: [string, string, string][] = [
+  ["How It Works", "Blocks DHT — the hormone that shrinks (miniaturizes) hair follicles — at the source", "Stimulates follicles and prolongs the growth phase by increasing blood flow to the scalp"],
+  ["Form", "Daily oral pill (topical versions also exist)", "Topical foam/solution, or low-dose oral (off-label)"],
+  ["FDA Status", "FDA-approved (prescription) for male pattern hair loss", "FDA-approved (OTC topical) for men and women"],
+  ["Best For", "Slowing and stopping male pattern loss at the hormonal source", "Stimulating regrowth; works for both men and women"],
+  ["Who Can Use It", "Men only — not for women who are or may become pregnant", "Men and women"],
 ];
 
-const wegovyVsOzempicRows: [string, string, string][] = [
-  ["Average Weight Loss in Trials", "~14.9% mean weight loss at 68 weeks in obesity-specific trials (STEP-1)", "5–10% weight loss observed in type 2 diabetes trials, depending on dose"],
-  ["FDA Approval Status", "Yes, FDA-approved specifically for weight management", "FDA-approved for type 2 diabetes; weight loss use is off-label"],
-  ["Dosing Schedule", "Weekly injection", "Weekly injection"],
-  ["Best For", "Patients seeking an FDA-approved medication for long-term weight management", "Patients with diabetes who may also benefit from weight loss"],
-  ["Insurance Coverage", "Coverage varies; often limited for obesity medications", "May have broader insurance coverage when prescribed for diabetes"],
+const oralVsTopicalRows: [string, string, string][] = [
+  ["Application", "A daily pill — nothing to apply to the scalp", "Applied to the scalp once or twice daily"],
+  ["Convenience", "Very convenient; easy to stay consistent", "Requires a daily scalp routine and drying time"],
+  ["Availability", "Prescription (finasteride; oral minoxidil off-label)", "Topical minoxidil is available over the counter"],
+  ["Best For", "People who want a simple, low-effort routine", "People who prefer to avoid or add to oral treatment"],
+  ["Note", "Oral minoxidil is prescribed off-label and needs monitoring", "Topical can cause scalp irritation for some users"],
 ];
 
 function ComparisonTable({ colA, colB, rows }: { colA: string; colB: string; rows: [string, string, string][] }) {
@@ -45,259 +45,172 @@ export function EditorialContent() {
   return (
     <div className="mx-auto max-w-[1200px] px-4 pt-6 pb-12 text-[16px] leading-[1.7] text-gray-700">
       <h2 className="mb-4 text-[24px] font-bold text-[#191919]">
-        The Best Weight Loss Injections and Programs, Compared
+        The Best Hair Loss Treatments and Providers, Compared
       </h2>
       <p className="mb-4">
-        To find the best weight loss injections and programs, we compare leading GLP-1 providers on the factors that actually matter. Choosing the right weight loss provider involves more than selecting a medication — pricing, clinical support, treatment plans, eligibility requirements, and long-term value can vary significantly between providers. Not sure where to start? Try our{" "}
+        To find the best hair loss treatment, we compare leading telehealth providers on the factors that actually matter. Choosing the right service involves more than picking a medication — pricing, which treatments are offered, medical support, and overall value can vary significantly between providers. Not sure where to start? Try our{" "}
         <Link href="/find-your-match" className="font-semibold text-[#0C4B75] hover:underline">
           provider matching quiz
         </Link>{" "}
         for a personalized recommendation.
       </p>
       <p className="mb-4">
-        To help simplify the decision, we reviewed leading weight loss programs and compared them based on medication access, affordability, provider support, customer experience, and overall value. Read our{" "}
+        To simplify the decision, we reviewed the leading hair loss services and compared them on treatment options, affordability, provider support, customer experience, and overall value. Read our{" "}
         <Link href="/reviews" className="font-semibold text-[#0C4B75] hover:underline">
           in-depth provider reviews
         </Link>{" "}
         for detailed breakdowns, or jump straight to a head-to-head like{" "}
-        <Link href="/altrx-vs-embody" className="font-semibold text-[#0C4B75] hover:underline">
-          altRx vs embody
+        <Link href="/hims-vs-keeps" className="font-semibold text-[#0C4B75] hover:underline">
+          Hims vs Keeps
         </Link>.
       </p>
       <p className="mb-8">
-        Our goal is to help you identify the provider that best aligns with your health goals, budget, and treatment preferences.
+        Our goal is to help you find the provider that best fits your hair loss goals, budget, and treatment preferences.
       </p>
 
       <hr className="mb-8 border-gray-200" />
 
       <h2 className="mb-4 text-[24px] font-bold text-[#191919]">
-        Weight Loss Program Pricing Comparison
+        Hair Loss Treatment Pricing Comparison
       </h2>
       <p className="mb-4">
-        Monthly costs can vary depending on the provider, medication prescribed, and level of support included in the program. Learn more about{" "}
-        <Link href="/articles/choosing-telehealth-weight-loss-provider" className="font-semibold text-[#0C4B75] hover:underline">
-          how to choose the right telehealth provider
-        </Link>{" "}
-        to understand what you should expect to pay.
+        Monthly costs vary depending on the provider, the treatment prescribed, and whether you choose generics, brand-name products, or a custom-compounded formula. Generic finasteride and minoxidil are often the most affordable route, while dermatologist-formulated custom treatments sit at the premium end.
       </p>
-      <p className="mb-3">Many providers offer all-inclusive plans that may include:</p>
+      <p className="mb-3">Most telehealth plans are subscriptions that may include:</p>
       <ul className="mb-8 list-disc space-y-1 pl-6">
-        <li>Prescription medication</li>
-        <li>Medical consultations</li>
-        <li>Ongoing provider support</li>
-        <li>Progress tracking tools</li>
-        <li>Home delivery</li>
+        <li>Prescription treatment (finasteride, minoxidil, or a combination)</li>
+        <li>An online consultation with a licensed provider</li>
+        <li>Ongoing support and dosage adjustments</li>
+        <li>Discreet home delivery</li>
       </ul>
-      <p className="mb-8">
-        Some programs focus on affordability, while others provide more personalized care and additional clinical services.
-      </p>
 
       {/* Editorial callout */}
-      <div className="mb-8 overflow-hidden rounded-xl bg-transparent">
-        <div className="flex flex-col sm:flex-row">
-          <div className="flex-1 py-6 pr-6 sm:py-8 sm:pr-8">
-            <h3 className="mb-3 text-[18px] font-bold leading-tight text-[#0C4B75] sm:text-[20px]">
-              What To Know Before Starting GLP-1 Treatment
-            </h3>
-            <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
-              Before starting GLP-1 treatment, it&apos;s important to understand a few key things. These medications require a prescription from a licensed clinician and aren&apos;t suitable for everyone. Some people may experience side effects, especially during the first few weeks as the body adjusts.
-            </p>
-            <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
-              GLP-1s also tend to work best when combined with basic lifestyle habits like balanced nutrition and regular physical activity.
-            </p>
-            <p className="text-[16px] leading-[1.75] text-gray-600">
-              That&apos;s why choosing a provider that offers proper medical screening and ongoing follow-up support is essential for both safety and long-term success.
-            </p>
-          </div>
-          <div className="flex items-center justify-center sm:w-[260px] sm:shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/editorial-injection.png"
-              alt="Woman preparing GLP-1 weight loss injection"
-              className="h-[200px] w-full object-cover sm:h-full sm:rounded-r-xl"
-              loading="lazy"
-            />
-          </div>
-        </div>
+      <div className="mb-8 rounded-xl border border-[#0C4B75]/10 bg-[#0C4B75]/[0.03] p-6 sm:p-8">
+        <h3 className="mb-3 text-[18px] font-bold leading-tight text-[#0C4B75] sm:text-[20px]">
+          What To Know Before Starting Hair Loss Treatment
+        </h3>
+        <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
+          Prescription treatments like finasteride require a consultation with a licensed clinician and aren&apos;t right for everyone — finasteride, in particular, is for men and is not safe for women who are or may become pregnant. Some people experience side effects, so proper medical screening matters.
+        </p>
+        <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
+          Hair loss treatments also take time and consistency. Most people don&apos;t see visible results for 3–6 months, and the medications only keep working while you keep using them.
+        </p>
+        <p className="text-[16px] leading-[1.75] text-gray-600">
+          That&apos;s why choosing a provider with real medical oversight and ongoing follow-up is essential for both safety and long-term results.
+        </p>
       </div>
 
       <hr className="mb-8 border-gray-200" />
 
       <h2 className="mb-4 text-[24px] font-bold text-[#191919]">
-        What to Consider Before Starting Treatment
+        What to Consider Before Choosing a Provider
       </h2>
       <p className="mb-3">
-        Before choosing a weight loss provider, it&apos;s important to evaluate several key factors. Our guide on{" "}
-        <Link href="/articles/first-month-weight-loss-medication" className="font-semibold text-[#0C4B75] hover:underline">
-          what to expect your first month on medication
-        </Link>{" "}
-        can help you prepare:
+        Before choosing a hair loss provider, it helps to weigh a few key factors:
       </p>
       <ul className="mb-8 list-disc space-y-1 pl-6">
-        <li>Available medication options</li>
-        <li>Medical eligibility requirements</li>
-        <li>Potential side effects</li>
-        <li>Level of provider support</li>
-        <li>Program flexibility</li>
-        <li>Overall treatment costs</li>
+        <li>Which treatments are offered (finasteride, minoxidil, combined, custom)</li>
+        <li>Whether they treat your situation (many are men-only)</li>
+        <li>Pricing and whether generics are available</li>
+        <li>Level of provider support and follow-up</li>
+        <li>Potential side effects and medical screening</li>
+        <li>Overall value and subscription flexibility</li>
       </ul>
       <p className="mb-8">
         Comparing providers side-by-side — like{" "}
-        <Link href="/trimrx-vs-ro" className="font-semibold text-[#0C4B75] hover:underline">
-          Ro vs TrimRX
+        <Link href="/hims-vs-roman" className="font-semibold text-[#0C4B75] hover:underline">
+          Hims vs Roman
         </Link>,{" "}
-        <Link href="/ro-vs-wellmedr" className="font-semibold text-[#0C4B75] hover:underline">
-          Ro vs WellMedr
+        <Link href="/keeps-vs-roman" className="font-semibold text-[#0C4B75] hover:underline">
+          Keeps vs Roman
         </Link>, or{" "}
-        <Link href="/embody-vs-wellmedr" className="font-semibold text-[#0C4B75] hover:underline">
-          embody vs WellMedr
+        <Link href="/hims-vs-happy-head" className="font-semibold text-[#0C4B75] hover:underline">
+          Hims vs Happy Head
         </Link>{" "}
-        — can help you better understand the differences and make a more informed decision.
+        — makes the differences clear and helps you make a more informed decision.
       </p>
 
       <hr className="mb-8 border-gray-200" />
 
       <h2 className="mb-4 text-[24px] font-bold text-[#191919]">
-        Popular Weight Loss Medications
-      </h2>
-      <p className="mb-3">
-        Many leading weight loss programs offer access to GLP-1 receptor agonist medications. Learn{" "}
-        <Link href="/articles/how-glp1-medications-work" className="font-semibold text-[#0C4B75] hover:underline">
-          how GLP-1 medications actually work
-        </Link>{" "}
-        for a detailed breakdown. Common options include:
-      </p>
-      <ul className="mb-4 list-disc space-y-1 pl-6">
-        <li>Semaglutide</li>
-        <li>Tirzepatide</li>
-        <li>Liraglutide</li>
-      </ul>
-      <p className="mb-8">
-        Medication availability may vary depending on your location, medical history, and provider policies.
-        Prefer a non-injection option? See our guide to{" "}
-        <Link href="/weight-loss-pills" className="font-semibold text-[#0C4B75] hover:underline">
-          weight loss pills
-        </Link>.
-      </p>
-
-      <hr className="mb-8 border-gray-200" />
-
-      <h2 className="mb-4 text-[24px] font-bold text-[#191919]">
-        GLP-1 Weight Loss Medications: Key Data (2026)
+        The Main Hair Loss Treatments Explained
       </h2>
       <p className="mb-4">
-        According to published clinical trial data, GLP-1 medications are the most effective
-        prescription weight loss treatments currently available. Below is a summary of key
-        statistics from major clinical trials.
+        Most telehealth providers offer some combination of the same evidence-backed treatments. The two proven, FDA-approved options are finasteride and minoxidil — and they&apos;re often most effective when used together.
       </p>
 
-      {/* GEO-optimized comparison table */}
       <div className="mb-8 overflow-hidden rounded-xl border border-gray-200">
         <table className="w-full text-left text-[14px]">
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50">
-              <th className="px-4 py-3 font-bold text-[#191919]">Medication</th>
-              <th className="px-4 py-3 font-bold text-[#191919]">Avg. Weight Loss</th>
-              <th className="px-4 py-3 font-bold text-[#191919]">Trial Duration</th>
-              <th className="hidden sm:table-cell px-4 py-3 font-bold text-[#191919]">Compounded Price</th>
+              <th className="px-4 py-3 font-bold text-[#191919]">Treatment</th>
+              <th className="px-4 py-3 font-bold text-[#191919]">What It Does</th>
+              <th className="hidden sm:table-cell px-4 py-3 font-bold text-[#191919]">Form</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
             <tr>
-              <td className="px-4 py-3 font-medium">Semaglutide (Wegovy)</td>
-              <td className="px-4 py-3">~15% of body weight</td>
-              <td className="px-4 py-3">68 weeks (STEP trials)</td>
-              <td className="hidden sm:table-cell px-4 py-3">From $199/month</td>
+              <td className="px-4 py-3 font-medium">Finasteride</td>
+              <td className="px-4 py-3">Blocks DHT to slow and stop male pattern loss</td>
+              <td className="hidden sm:table-cell px-4 py-3">Oral pill (Rx); topical exists</td>
             </tr>
             <tr className="bg-gray-50/50">
-              <td className="px-4 py-3 font-medium">Tirzepatide (Zepbound)</td>
-              <td className="px-4 py-3">Up to 22.5% of body weight</td>
-              <td className="px-4 py-3">72 weeks (SURMOUNT trials)</td>
-              <td className="hidden sm:table-cell px-4 py-3">From $300/month</td>
+              <td className="px-4 py-3 font-medium">Minoxidil</td>
+              <td className="px-4 py-3">Stimulates regrowth; works for men and women</td>
+              <td className="hidden sm:table-cell px-4 py-3">Topical (OTC) or low-dose oral</td>
             </tr>
             <tr>
-              <td className="px-4 py-3 font-medium">Liraglutide (Saxenda)</td>
-              <td className="px-4 py-3">~5–8% of body weight</td>
-              <td className="px-4 py-3">56 weeks</td>
-              <td className="hidden sm:table-cell px-4 py-3">$1,300+/month (brand only)</td>
+              <td className="px-4 py-3 font-medium">Dutasteride</td>
+              <td className="px-4 py-3">A stronger DHT blocker, used off-label</td>
+              <td className="hidden sm:table-cell px-4 py-3">Oral pill (Rx, off-label)</td>
+            </tr>
+            <tr className="bg-gray-50/50">
+              <td className="px-4 py-3 font-medium">Ketoconazole shampoo</td>
+              <td className="px-4 py-3">A supporting, DHT-targeting topical adjunct</td>
+              <td className="hidden sm:table-cell px-4 py-3">Shampoo</td>
             </tr>
           </tbody>
         </table>
       </div>
       <p className="mb-4 text-[13px] text-gray-400">
-        Source: Published results from STEP (semaglutide), SURMOUNT (tirzepatide), and SCALE (liraglutide)
-        clinical trials. Individual results vary. Compounded pricing reflects typical telehealth provider
-        rates as of July 2026.
+        Finasteride and topical minoxidil are the only FDA-approved medications for pattern hair loss. Dutasteride and oral minoxidil are prescribed off-label. Individual results vary; prescription treatments require a licensed clinician.
       </p>
 
       <h3 className="mb-3 mt-8 text-[20px] font-bold text-[#191919]">
-        Tirzepatide vs Semaglutide
+        Finasteride vs Minoxidil
       </h3>
       <p className="mb-4">
-        Tirzepatide and semaglutide are the two most effective GLP-1 medications for weight loss. They work
-        in similar ways but differ in average results, approvals, and coverage. Compare{" "}
-        <Link href="/tirzepatide" className="font-semibold text-[#0C4B75] hover:underline">tirzepatide providers</Link>{" "}
-        and{" "}
-        <Link href="/semaglutide" className="font-semibold text-[#0C4B75] hover:underline">semaglutide providers</Link>{" "}
-        to see which fits your goals.
+        Finasteride and minoxidil are the two most-used hair loss treatments. They work in completely different ways — one blocks the hormone behind hair loss, the other stimulates regrowth — which is why many providers prescribe them together.
       </p>
-      <ComparisonTable colA="Tirzepatide" colB="Semaglutide" rows={tirzVsSemaRows} />
+      <ComparisonTable colA="Finasteride" colB="Minoxidil" rows={finVsMinRows} />
 
       <h3 className="mb-3 mt-8 text-[20px] font-bold text-[#191919]">
-        Wegovy vs Ozempic
+        Oral vs Topical Treatment
       </h3>
       <p className="mb-4">
-        Both Wegovy and Ozempic use semaglutide, but the difference is in dosage and indication. Wegovy is
-        tailored for weight loss, while Ozempic was developed for diabetes but is often prescribed off-label.
-        See our{" "}
-        <Link href="/wegovy-providers" className="font-semibold text-[#0C4B75] hover:underline">Wegovy providers</Link>{" "}
-        and{" "}
-        <Link href="/ozempic-for-weight-loss" className="font-semibold text-[#0C4B75] hover:underline">Ozempic for weight loss</Link>{" "}
-        guides for details.
+        Some treatments are taken as a daily pill, others applied directly to the scalp. The right choice usually comes down to convenience versus your preference for avoiding oral medication.
       </p>
-      <ComparisonTable colA="Wegovy" colB="Ozempic" rows={wegovyVsOzempicRows} />
-      <p className="mb-8 text-[13px] text-gray-400">
-        Source: STEP-1 (semaglutide) and SURMOUNT (tirzepatide) clinical trial data. Brand names Zepbound®,
-        Mounjaro®, Wegovy®, and Ozempic® are trademarks of their respective manufacturers. Individual results
-        vary; medications require a prescription from a licensed clinician.
-      </p>
+      <ComparisonTable colA="Oral" colB="Topical" rows={oralVsTopicalRows} />
 
-      <h3 className="mb-3 mt-6 text-[18px] font-bold text-[#191919]">
-        How Much Does GLP-1 Weight Loss Medication Cost?
+      <h3 className="mb-3 mt-8 text-[18px] font-bold text-[#191919]">
+        How Much Does Hair Loss Treatment Cost?
       </h3>
       <p className="mb-3">
-        Brand-name GLP-1 medications cost $900–$1,400 per month at retail price without insurance.
-        Compounded versions of semaglutide and tirzepatide are available through licensed telehealth
-        providers at significantly lower prices — typically $199–$500 per month including physician
-        consultations, medication, and home delivery. Learn more in our{" "}
-        <Link href="/articles/weight-loss-medication-cost-guide" className="font-semibold text-[#0C4B75] hover:underline">
-          complete cost guide
-        </Link>.
+        Through telehealth providers, generic finasteride typically runs about $20–$30/month and minoxidil about $15/month, with lower effective pricing on longer plans. Combined routines and brand-name or custom-compounded formulas cost more — dermatologist-formulated custom treatments generally range from about $35–$79/month. No insurance is required; the monthly cost includes the medication and provider oversight.
       </p>
 
       <h3 className="mb-3 mt-6 text-[18px] font-bold text-[#191919]">
-        How Long Does It Take for GLP-1 Medication to Work?
+        How Long Does It Take to See Results?
       </h3>
       <p className="mb-3">
-        Most patients notice reduced appetite within the first 1–2 weeks of starting GLP-1 medication.
-        Visible weight loss typically begins around weeks 4–8. Clinical trial results show maximum
-        weight loss at 68–72 weeks of treatment. Read our{" "}
-        <Link href="/articles/how-long-for-semaglutide-to-work" className="font-semibold text-[#0C4B75] hover:underline">
-          detailed semaglutide timeline
-        </Link>.
+        Hair loss treatment takes patience. Most people first notice reduced shedding within a couple of months, with visible regrowth typically starting around 3–6 months and continuing to improve up to about 12 months. Results only last while you keep treatment going.
       </p>
 
       <h3 className="mb-3 mt-6 text-[18px] font-bold text-[#191919]">
-        Can You Get GLP-1 Medication Online?
+        Can You Get Hair Loss Treatment Online?
       </h3>
       <p className="mb-8">
-        Yes. Licensed telehealth providers can prescribe GLP-1 medications through fully online
-        medical evaluations. The process typically takes 1–5 days from sign-up to medication delivery.
-        All providers featured on our platform use licensed physicians for prescribing and include
-        ongoing medical oversight. Read our{" "}
-        <Link href="/articles/how-to-get-ozempic-online" className="font-semibold text-[#0C4B75] hover:underline">
-          guide to getting GLP-1 medication online
-        </Link>.
+        Yes. Licensed telehealth providers can prescribe finasteride, minoxidil, and combined treatments through a fully online evaluation, usually shipped discreetly within a few days. Every provider we feature uses licensed clinicians for prescribing and includes ongoing medical oversight.
       </p>
 
       <hr className="mb-8 border-gray-200" />
@@ -307,23 +220,23 @@ export function EditorialContent() {
       </h2>
       <p className="mb-3">Our rankings are based on a combination of factors including:</p>
       <ul className="mb-4 list-disc space-y-1 pl-6">
-        <li>Pricing transparency</li>
-        <li>Medication availability</li>
-        <li>Clinical oversight</li>
+        <li>Pricing transparency and value</li>
+        <li>Range of treatments offered</li>
+        <li>Medical oversight and provider support</li>
         <li>Customer experience</li>
-        <li>Program flexibility</li>
-        <li>Overall value</li>
+        <li>Who they treat (men, women, or both)</li>
+        <li>Subscription flexibility</li>
       </ul>
       <p>
-        We continuously review and update our recommendations to help consumers{" "}
+        We continuously review and update our recommendations to help you{" "}
         <Link href="/reviews" className="font-semibold text-[#0C4B75] hover:underline">
-          compare leading weight loss solutions
+          compare leading hair loss providers
         </Link>{" "}
         with confidence. Browse all{" "}
         <Link href="/articles" className="font-semibold text-[#0C4B75] hover:underline">
-          weight loss articles
+          hair loss guides
         </Link>{" "}
-        for more research and guides.
+        for more research.
       </p>
     </div>
   );
