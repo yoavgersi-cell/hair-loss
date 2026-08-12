@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Shield, Users, Award, Info } from "lucide-react";
 import type { SidebarConfig, Provider } from "@/lib/config";
 
-const ALL_BLOCKS = ["socialProof", "secureBadge", "featuredImage", "editorialReviews", "rankingMethodology", "disclosure"] as const;
+// "featuredImage" (sidebar banner) intentionally removed for now — the case
+// below is kept so it can be re-enabled by adding it back to this list.
+const ALL_BLOCKS = ["socialProof", "secureBadge", "editorialReviews", "rankingMethodology", "disclosure"] as const;
 
 function SidebarCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
