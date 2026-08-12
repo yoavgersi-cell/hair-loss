@@ -41,6 +41,11 @@ const REVIEW_SEO_OVERRIDES: Record<string, { title: string; description: string 
     description:
       "Nutrafol reviews: drug-free, physician-formulated hair growth supplements for men & women, ~$79–$88/mo. Does it work, is it legit, and is it worth it? Real cost, pros & cons, and verdict.",
   },
+  maximus: {
+    title: "Maximus Hair Review 2026: Does the Protocol Work & Is It Legit?",
+    description:
+      "Maximus (Maximus Tribe) hair reviews: a prescription oral protocol combining minoxidil with finasteride or dutasteride for men. Does it work, is it legit, cost, pros & cons, and verdict.",
+  },
 };
 
 // "Is [brand] legit?" trust block — targets the high-intent "is X legit" query
@@ -100,6 +105,17 @@ const REVIEW_LEGIT: Record<string, { verdict: string; signals: string[] }> = {
       "Sold through dermatologists and licensed professionals",
       "Drug-free — no prescription required",
       "Established, widely available brand",
+    ],
+  },
+  maximus: {
+    verdict:
+      "Yes — Maximus (Maximus Tribe) is a legitimate men's-health telehealth company. Its hair-growth protocol is prescribed by licensed providers after an online medical review and filled by licensed pharmacies, combining evidence-backed actives into one oral formulation.",
+    signals: [
+      "Licensed providers review every plan",
+      "Prescriptions filled by licensed pharmacies",
+      "Established men's-health telehealth brand",
+      "Uses evidence-backed actives (minoxidil, finasteride/dutasteride)",
+      "Online medical intake before prescribing",
     ],
   },
 };

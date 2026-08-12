@@ -203,6 +203,45 @@ const defaultReviews: ReviewData[] = [
     ],
     finalVerdict: "Nutrafol is the standout drug-free option — a physician-formulated supplement that targets the stress, hormone, and nutrition factors behind thinning hair, for both men and women. It won't replace finasteride or minoxidil for pattern hair loss, and it asks for patience and a premium monthly price, but for anyone who wants to avoid medication, it's the most credible supplement choice.",
   },
+  {
+    slug: "maximus",
+    providerId: "maximus",
+    shortSummary: "Men's-health telehealth (Maximus Tribe) offering a prescription oral hair-growth protocol that combines multiple proven actives into one convenient daily formulation.",
+    reviewIntro: "Maximus (Maximus Tribe) is a men's-health telehealth brand best known for hormone and performance protocols, and its hair-growth offering follows the same all-in-one philosophy: a prescription oral protocol that combines proven actives — typically oral minoxidil paired with finasteride or dutasteride — into a single, convenient daily treatment. A licensed provider reviews your intake before prescribing, and it's aimed squarely at men who want a potent, oral-only approach rather than a topical routine.",
+    keyFeatures: [
+      "All-in-one prescription oral hair-growth protocol",
+      "Combines oral minoxidil with finasteride or dutasteride",
+      "Licensed providers review every plan",
+      "Oral-only — no topical routine to maintain",
+      "Men's-health focused telehealth platform",
+    ],
+    pricingSummary: "Maximus uses subscription pricing for its hair protocol, positioned as a premium, comprehensive plan rather than a bare-bones generic. No insurance is required; the monthly cost covers the prescription formulation and provider oversight, and longer plans typically lower the effective price.",
+    treatmentOptions: [
+      "Oral minoxidil",
+      "Finasteride or dutasteride (DHT blockers)",
+      "Combined all-in-one oral protocol",
+      "Provider-guided dosing",
+    ],
+    pros: [
+      "Potent, all-in-one oral formulation",
+      "Combines multiple mechanisms in one daily dose",
+      "No topical routine to keep up with",
+      "Offers dutasteride, a stronger DHT blocker",
+      "Licensed provider oversight",
+    ],
+    cons: [
+      "Men-focused — not aimed at women",
+      "Premium pricing versus generic-only options",
+      "Oral minoxidil and dutasteride need medical oversight",
+      "Less of a dedicated hair-only brand",
+    ],
+    bestFor: [
+      "Men who want a potent, all-in-one oral protocol",
+      "Those who prefer pills over a topical routine",
+      "Anyone wanting dutasteride as a stronger DHT option",
+    ],
+    finalVerdict: "Maximus is a strong pick for men who want a potent, oral-only approach to hair loss — its protocol combines oral minoxidil with a DHT blocker (finasteride or dutasteride) in one daily formulation, skipping the topical routine entirely. It's premium and men-focused, and the stronger actives call for good medical oversight, but for a comprehensive all-in-one oral protocol it stands out.",
+  },
 ];
 
 // ───── Brand casing normalization ─────
@@ -213,6 +252,7 @@ const CANONICAL_NAMES: Record<string, string> = {
   roman: "Roman",
   happyhead: "Happy Head",
   nutrafol: "Nutrafol",
+  maximus: "Maximus",
 };
 
 // Wrong-cased brand mentions inside display text. "Shed"/"Embody" only match
@@ -774,7 +814,7 @@ function buildInitialConfig(): SiteConfig {
       trustpilotReviews: seedTrustpilot[p.id]?.reviews,
     })),
     ranking: {
-      providerOrder: ["hims", "keeps", "roman", "happyhead", "nutrafol"],
+      providerOrder: ["hims", "keeps", "roman", "happyhead", "nutrafol", "maximus"],
       positions: [
         { score: 9.8, starRating: 5, label: "Exceptional", badge: "Our Most Popular" },
         { score: 9.6, starRating: 4.5, label: "Excellent" },
@@ -846,7 +886,7 @@ function buildInitialConfig(): SiteConfig {
           "Checking provider quality...",
           "Finalizing your recommendation...",
         ],
-        providerLogos: ["hims", "keeps", "roman", "happyhead", "nutrafol"],
+        providerLogos: ["hims", "keeps", "roman", "happyhead", "nutrafol", "maximus"],
         durationMs: 4400,
       },
       questions: [
@@ -928,6 +968,7 @@ function buildInitialConfig(): SiteConfig {
         { providerId: "roman", priceLevel: "mid", strengths: ["medical", "online"], matchReasons: { cost: "Transparent subscription pricing", medical: "Clinician-guided plans from the Ro platform", online: "Streamlined telehealth experience", personalized: "Provider-guided adjustments" } },
         { providerId: "happyhead", priceLevel: "high", strengths: ["personalized", "medical"], matchReasons: { cost: "Premium, custom-compounded formulas", medical: "Dermatologist-founded, prescription strength", online: "Full online evaluation", personalized: "Formulas tailored to your hair loss pattern" } },
         { providerId: "nutrafol", priceLevel: "high", strengths: ["personalized", "online"], matchReasons: { cost: "Premium drug-free supplement", medical: "Physician-formulated, clinically tested", online: "Sold direct with an easy subscription", personalized: "Formulas for men, women, menopause & postpartum" } },
+        { providerId: "maximus", priceLevel: "high", strengths: ["medical", "personalized"], matchReasons: { cost: "Premium all-in-one oral protocol", medical: "Prescription protocol with provider oversight", online: "Fully online men's-health platform", personalized: "Custom oral formulation (incl. dutasteride)" } },
       ],
     },
   };

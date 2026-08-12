@@ -98,5 +98,25 @@
     "affiliateUrl": "#",
     "ctaText": "View Plans",
     "description": ""
+  },
+  {
+    "id": "maximus",
+    "rank": 6,
+    "name": "Maximus",
+    "slug": "maximus",
+    "tagline": "Men's-health telehealth with a potent all-in-one oral hair-growth protocol",
+    "logo": "/logos/maximus.svg",
+    "rating": 9.1,
+    "ratingLabel": "Excellent",
+    "reviewCount": 0,
+    "highlights": [
+      "Prescription oral hair-growth protocol (all-in-one)",
+      "Combines oral minoxidil with finasteride or dutasteride",
+      "Men's-health focus with licensed provider oversight"
+    ],
+    "specialOffer": null,
+    "affiliateUrl": "#",
+    "ctaText": "View Plans",
+    "description": ""
   }
 ]
