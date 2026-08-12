@@ -29,7 +29,7 @@ export function HeroSection({
       {/* Transparent character cutout on the right over the blue background.
           object-contain + bottom-anchored so the whole man shows, no crop.
           Desktop only; mobile is just the blue background. */}
-      <div className="absolute inset-y-0 right-[3%] hidden w-[44%] sm:block">
+      <div className="absolute inset-y-0 right-[2%] hidden w-[40%] sm:block">
         <Image
           src={backgroundImageUrl}
           alt={imageAlt}
@@ -47,7 +47,7 @@ export function HeroSection({
           textAlign === "center" && "items-center text-center"
         )}
       >
-        <div className="max-w-[560px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
+        <div className="max-w-[640px]" style={{ maxWidth: maxTextWidth !== "640px" ? maxTextWidth : undefined }}>
           {updatedLabel && (
             <span className="mb-4 sm:mb-5 inline-flex items-center gap-1.5 text-[13px] text-gray-600">
               <svg className="h-4 w-4 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
@@ -55,7 +55,7 @@ export function HeroSection({
             </span>
           )}
 
-          <h1 className="text-[22px] sm:text-[28px] lg:text-[30px] leading-[1.12] font-extrabold text-[#191919]">
+          <h1 className="text-[22px] sm:text-[28px] lg:text-[30px] leading-[1.12] font-extrabold text-[#191919] lg:whitespace-nowrap">
             {h1}
           </h1>
 

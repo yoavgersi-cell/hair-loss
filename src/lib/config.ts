@@ -272,7 +272,7 @@ export const defaultConfig: SiteConfig = {
     backgroundImageUrl: "/hero.png",
     imageAlt: "Man with thick, healthy hair",
     updatedLabel: "Last Updated: Aug 2026",
-    h1: "Best Hair Loss Treatments & Providers for Men in 2026",
+    h1: "Best Hair Loss Treatments for Men in 2026",
     h2: "Compare the top hair loss treatments, side by side",
     description:
       "Compare hair loss providers on pricing, treatments, medical support, and real results — and find the one that's right for you.",
