@@ -164,6 +164,45 @@ const defaultReviews: ReviewData[] = [
     ],
     finalVerdict: "Happy Head is the pick for a personalized, dermatologist-led approach — its custom-compounded topicals and oral options go beyond the one-size-fits-all routine, and it's one of the few that treats women as well as men. You'll pay more than for generics, but for tailored, prescription-strength care it stands out.",
   },
+  {
+    slug: "nutrafol",
+    providerId: "nutrafol",
+    shortSummary: "Drug-free, physician-formulated hair growth supplements that target root causes like stress, hormones, and nutrition — for both men and women, no prescription needed.",
+    reviewIntro: "Nutrafol takes a different approach from the prescription brands: instead of finasteride or minoxidil, it's a drug-free nutraceutical (supplement) designed to support hair growth by targeting root causes like stress, hormones, nutrition, and metabolism. Its physician-formulated capsules combine botanicals and nutrients — such as saw palmetto, ashwagandha, marine collagen, and biotin — and the ingredients are clinically tested. It's sold over the counter for both men and women.",
+    keyFeatures: [
+      "Drug-free supplement — no finasteride or minoxidil",
+      "Physician-formulated with clinically tested ingredients",
+      "Whole-body approach (stress, hormones, nutrition)",
+      "Formulas for men, women, menopause, and postpartum",
+      "No prescription required — sold direct and via dermatologists",
+    ],
+    pricingSummary: "Nutrafol typically runs about $79–$88 per month depending on the formula and whether you subscribe. It's an ongoing supplement rather than a one-time purchase, and no insurance or prescription is required — a subscription lowers the per-month cost.",
+    treatmentOptions: [
+      "Nutrafol Men",
+      "Nutrafol Women (plus Women's Balance for menopause)",
+      "Postpartum and vegan formulas",
+      "Supporting scalp and hair products",
+    ],
+    pros: [
+      "Drug-free — ideal if you want to avoid finasteride/minoxidil",
+      "Works for both men and women",
+      "Physician-formulated and clinically tested",
+      "No prescription needed",
+      "Targets whole-body factors like stress and nutrition",
+    ],
+    cons: [
+      "A supplement — evidence is less robust than finasteride/minoxidil",
+      "Premium price for an ongoing supplement",
+      "Results take 3–6 months and vary by person",
+      "Not a substitute for medical treatment in advanced loss",
+    ],
+    bestFor: [
+      "People who want a drug-free, supplement-based option",
+      "Men and women looking for a whole-body approach",
+      "Anyone avoiding or unable to take finasteride/minoxidil",
+    ],
+    finalVerdict: "Nutrafol is the standout drug-free option — a physician-formulated supplement that targets the stress, hormone, and nutrition factors behind thinning hair, for both men and women. It won't replace finasteride or minoxidil for pattern hair loss, and it asks for patience and a premium monthly price, but for anyone who wants to avoid medication, it's the most credible supplement choice.",
+  },
 ];
 
 // ───── Brand casing normalization ─────
@@ -173,6 +212,7 @@ const CANONICAL_NAMES: Record<string, string> = {
   keeps: "Keeps",
   roman: "Roman",
   happyhead: "Happy Head",
+  nutrafol: "Nutrafol",
 };
 
 // Wrong-cased brand mentions inside display text. "Shed"/"Embody" only match
@@ -629,6 +669,93 @@ const himsHappyheadBattle: BattleData = {
   ],
 };
 
+const himsNutrafolBattle: BattleData = {
+  slug: "hims-vs-nutrafol",
+  provider1Id: "hims",
+  provider2Id: "nutrafol",
+  title: "Hims vs Nutrafol: Prescription vs Drug-Free for Hair Loss (2026)",
+  subtitle: "Hims vs Nutrafol, compared — proven prescription medications vs a drug-free supplement. Which is right for you?",
+  description: "Hims vs Nutrafol compared: Hims offers proven Rx finasteride & minoxidil; Nutrafol is a drug-free, physician-formulated supplement for men and women. See which fits your goals in 2026.",
+  intro: "Hims and Nutrafol represent two very different approaches to hair loss. Hims prescribes the proven, FDA-approved medications — finasteride and minoxidil — after an online consult. Nutrafol skips the drugs entirely: it's a physician-formulated supplement that targets root causes like stress, hormones, and nutrition, and it works for both men and women without a prescription. Here's how they compare.",
+  verdict: "For men with male pattern baldness who want the most effective, evidence-backed results, Hims takes this one — finasteride and minoxidil are the proven standard of care. But Nutrafol is the better choice if you specifically want a drug-free option, are a woman, or can't take finasteride/minoxidil. They can even be used together, since they work in completely different ways.",
+  verdictWinnerPoints: [
+    "Proven, FDA-approved finasteride & minoxidil",
+    "Strongest evidence for male pattern hair loss",
+    "Broad range plus a 2-in-1 spray",
+  ],
+  verdictLoserPoints: [
+    "Completely drug-free supplement",
+    "Works for both men and women",
+    "Targets stress, hormones, and nutrition — no prescription",
+  ],
+  winnerId: "hims",
+  categories: [
+    {
+      name: "Proven Effectiveness",
+      winner: "provider1",
+      explanation: "Hims uses finasteride and minoxidil — the only FDA-approved medications for pattern hair loss, with the strongest clinical evidence. Nutrafol's ingredients are clinically tested, but as a supplement the evidence is less robust than the prescription medications.",
+      supportingPoints: [
+        "FDA-approved finasteride & minoxidil (Hims)",
+        "Strongest evidence base (Hims)",
+        "Clinically tested supplement ingredients (Nutrafol)",
+        "Results take months either way",
+      ],
+    },
+    {
+      name: "Drug-Free Option",
+      winner: "provider2",
+      explanation: "Nutrafol is completely drug-free — no finasteride or minoxidil — which appeals to people wary of medication side effects. Hims is built around prescription drugs, though it also sells some supplements.",
+      supportingPoints: [
+        "100% drug-free supplement (Nutrafol)",
+        "Avoids finasteride side-effect concerns (Nutrafol)",
+        "Prescription-drug based (Hims)",
+        "No prescription needed (Nutrafol)",
+      ],
+    },
+    {
+      name: "Who It Treats",
+      winner: "provider2",
+      explanation: "Nutrafol has formulas for men, women, menopause, and postpartum. Hims's hair line — including finasteride — is men-only, so women can't use its core treatment.",
+      supportingPoints: [
+        "Formulas for men and women (Nutrafol)",
+        "Menopause & postpartum options (Nutrafol)",
+        "Men-only hair line (Hims)",
+        "Physician-formulated (Nutrafol)",
+      ],
+    },
+    {
+      name: "Pricing & Value",
+      winner: "provider1",
+      explanation: "Hims's core medications start low — generic finasteride around $20/month. Nutrafol is a premium supplement at roughly $79–$88/month. For cost-per-proven-result, Hims comes out ahead.",
+      supportingPoints: [
+        "Generic finasteride from ~$20/mo (Hims)",
+        "Bundles and intro offers (Hims)",
+        "Premium supplement ~$79–$88/mo (Nutrafol)",
+        "No insurance required (both)",
+      ],
+    },
+    {
+      name: "Convenience",
+      winner: "tie",
+      explanation: "Both are simple subscriptions with discreet home delivery. Hims requires an online consult since it's prescription; Nutrafol can be bought over the counter with no consult needed.",
+      supportingPoints: [
+        "Subscription with home delivery (both)",
+        "Online consult required (Hims)",
+        "No prescription or consult (Nutrafol)",
+        "Easy to cancel (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Type", provider1Value: "Prescription medications", provider2Value: "Drug-free supplement", highlight: "provider1" },
+    { feature: "Core Treatment", provider1Value: "Finasteride & minoxidil", provider2Value: "Physician-formulated botanicals & nutrients", highlight: "provider1" },
+    { feature: "Treats Women", provider1Value: "Men-only hair line", provider2Value: "Men and women", highlight: "provider2" },
+    { feature: "Prescription", provider1Value: "Required (online consult)", provider2Value: "Not required", highlight: "provider2" },
+    { feature: "Starting Price", provider1Value: "From ~$20/mo (generic fin)", provider2Value: "~$79–$88/mo", highlight: "provider1" },
+    { feature: "Delivery", provider1Value: "Discreet home delivery", provider2Value: "Discreet home delivery", highlight: "both" },
+  ],
+};
+
 function buildInitialConfig(): SiteConfig {
   return {
     ...defaultConfig,
@@ -647,7 +774,7 @@ function buildInitialConfig(): SiteConfig {
       trustpilotReviews: seedTrustpilot[p.id]?.reviews,
     })),
     ranking: {
-      providerOrder: ["hims", "keeps", "roman", "happyhead"],
+      providerOrder: ["hims", "keeps", "roman", "happyhead", "nutrafol"],
       positions: [
         { score: 9.8, starRating: 5, label: "Exceptional", badge: "Our Most Popular" },
         { score: 9.6, starRating: 4.5, label: "Excellent" },
@@ -666,7 +793,7 @@ function buildInitialConfig(): SiteConfig {
     faqs: faqsJson,
     reviews: defaultReviews,
     articles: defaultArticlesData,
-    battles: [himsKeepsBattle, himsRomanBattle, keepsRomanBattle, himsHappyheadBattle],
+    battles: [himsKeepsBattle, himsRomanBattle, keepsRomanBattle, himsHappyheadBattle, himsNutrafolBattle],
     sidebars: [
       {
         id: "articles-default",
@@ -719,7 +846,7 @@ function buildInitialConfig(): SiteConfig {
           "Checking provider quality...",
           "Finalizing your recommendation...",
         ],
-        providerLogos: ["hims", "keeps", "roman", "happyhead"],
+        providerLogos: ["hims", "keeps", "roman", "happyhead", "nutrafol"],
         durationMs: 4400,
       },
       questions: [
@@ -800,6 +927,7 @@ function buildInitialConfig(): SiteConfig {
         { providerId: "keeps", priceLevel: "low", strengths: ["cost", "online"], matchReasons: { cost: "Among the most affordable hair loss options", medical: "Physician-reviewed generic finasteride & minoxidil", online: "Simple online enrollment", personalized: "Focused, hair-loss-only plans" } },
         { providerId: "roman", priceLevel: "mid", strengths: ["medical", "online"], matchReasons: { cost: "Transparent subscription pricing", medical: "Clinician-guided plans from the Ro platform", online: "Streamlined telehealth experience", personalized: "Provider-guided adjustments" } },
         { providerId: "happyhead", priceLevel: "high", strengths: ["personalized", "medical"], matchReasons: { cost: "Premium, custom-compounded formulas", medical: "Dermatologist-founded, prescription strength", online: "Full online evaluation", personalized: "Formulas tailored to your hair loss pattern" } },
+        { providerId: "nutrafol", priceLevel: "high", strengths: ["personalized", "online"], matchReasons: { cost: "Premium drug-free supplement", medical: "Physician-formulated, clinically tested", online: "Sold direct with an easy subscription", personalized: "Formulas for men, women, menopause & postpartum" } },
       ],
     },
   };

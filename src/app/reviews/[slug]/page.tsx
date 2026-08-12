@@ -36,6 +36,11 @@ const REVIEW_SEO_OVERRIDES: Record<string, { title: string; description: string 
     description:
       "Happy Head reviews: dermatologist-formulated custom finasteride & minoxidil for men and women, from ~$35/mo. Is Happy Head legit and worth it? Real cost, pros & cons, and verdict.",
   },
+  nutrafol: {
+    title: "Nutrafol Reviews 2026: Does It Work? Cost & Is It Legit?",
+    description:
+      "Nutrafol reviews: drug-free, physician-formulated hair growth supplements for men & women, ~$79–$88/mo. Does it work, is it legit, and is it worth it? Real cost, pros & cons, and verdict.",
+  },
 };
 
 // "Is [brand] legit?" trust block — targets the high-intent "is X legit" query
@@ -84,6 +89,17 @@ const REVIEW_LEGIT: Record<string, { verdict: string; signals: string[] }> = {
       "Custom formulas from licensed compounding pharmacies",
       "Treats both men and women",
       "Personalized to your hair loss pattern",
+    ],
+  },
+  nutrafol: {
+    verdict:
+      "Yes — Nutrafol is a legitimate, widely sold hair growth supplement brand. Its formulas are physician-formulated, its ingredients are clinically tested, and it's sold directly and through dermatologists and licensed professionals. Note that it's a nutraceutical (supplement), not an FDA-approved drug.",
+    signals: [
+      "Physician-formulated formulas",
+      "Clinically tested ingredients (published studies)",
+      "Sold through dermatologists and licensed professionals",
+      "Drug-free — no prescription required",
+      "Established, widely available brand",
     ],
   },
 };

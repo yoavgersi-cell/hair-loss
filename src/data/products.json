@@ -78,5 +78,25 @@
     "affiliateUrl": "#",
     "ctaText": "View Plans",
     "description": ""
+  },
+  {
+    "id": "nutrafol",
+    "rank": 5,
+    "name": "Nutrafol",
+    "slug": "nutrafol",
+    "tagline": "Drug-free, physician-formulated hair growth supplements for men & women",
+    "logo": "/logos/nutrafol.svg",
+    "rating": 9.2,
+    "ratingLabel": "Excellent",
+    "reviewCount": 0,
+    "highlights": [
+      "Drug-free nutraceutical — no finasteride or minoxidil",
+      "Physician-formulated with clinically tested ingredients",
+      "Whole-body approach for both men & women"
+    ],
+    "specialOffer": null,
+    "affiliateUrl": "#",
+    "ctaText": "View Plans",
+    "description": ""
   }
 ]

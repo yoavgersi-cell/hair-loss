@@ -23,6 +23,7 @@ export function Footer() {
               <Link href="/reviews/keeps" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Keeps</Link>
               <Link href="/reviews/roman" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Roman</Link>
               <Link href="/reviews/happyhead" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Happy Head</Link>
+              <Link href="/reviews/nutrafol" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Nutrafol</Link>
               <Link href="/reviews" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">All Reviews</Link>
             </nav>
           </div>
