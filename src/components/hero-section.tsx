@@ -55,18 +55,18 @@ export function HeroSection({
             </span>
           )}
 
-          <h1 className="text-[22px] sm:text-[27px] lg:text-[29px] leading-[1.15] font-extrabold text-[#191919]">
+          <h1 className="text-[22px] sm:text-[28px] lg:text-[30px] leading-[1.12] font-extrabold text-[#191919]">
             {h1}
           </h1>
 
           {h2 && (
-            <h2 className="mt-2 hidden sm:block text-[20px] lg:text-[22px] leading-[1.3] font-semibold text-[#3a6ea5]">
+            <h2 className="mt-2 hidden sm:block text-[24px] lg:text-[26px] leading-[1.25] font-semibold text-[#3a6ea5]">
               {h2}
             </h2>
           )}
 
           {description && (
-            <p className="mt-3 sm:mt-3.5 text-[13px] sm:text-[15px] leading-[1.5] sm:leading-[1.6] text-gray-600 max-w-[520px]">
+            <p className="mt-3 sm:mt-4 text-[13px] sm:text-[16px] leading-[1.5] sm:leading-[1.6] text-gray-600 max-w-[520px]">
               {description}
             </p>
           )}
