@@ -796,6 +796,180 @@ const himsNutrafolBattle: BattleData = {
   ],
 };
 
+const himsMaximusBattle: BattleData = {
+  slug: "hims-vs-maximus",
+  provider1Id: "hims",
+  provider2Id: "maximus",
+  title: "Hims vs Maximus: Which Hair Loss Provider Wins in 2026?",
+  subtitle: "Hims vs Maximus, compared — a broad mainstream platform vs an all-in-one oral protocol. Which fits your goals?",
+  description: "Hims vs Maximus compared: Hims offers broad, affordable finasteride & minoxidil plus a 2-in-1 spray; Maximus is an all-in-one oral protocol with a stronger DHT-blocker option. See which wins in 2026.",
+  intro: "Hims and Maximus both prescribe the proven hair loss actives, but they package them differently. Hims is a broad, mainstream men's platform with finasteride, minoxidil (topical and oral), and a convenient 2-in-1 spray at accessible prices. Maximus is a men's-health brand offering an all-in-one oral protocol that combines oral minoxidil with a DHT blocker — finasteride or the stronger dutasteride — in a single daily formulation. Here's how they compare.",
+  verdict: "Both are legitimate, prescription-based options — but Hims takes this one for most men on value, range, and brand. It's more affordable, offers topical and oral options plus a 2-in-1 spray, and is easy to start. Maximus is the better pick if you specifically want a potent, all-in-one oral protocol or the option of dutasteride, a stronger DHT blocker.",
+  verdictWinnerPoints: [
+    "More affordable and easy to start",
+    "Topical + oral options plus a 2-in-1 spray",
+    "Large, trusted mainstream brand",
+  ],
+  verdictLoserPoints: [
+    "All-in-one oral protocol — no topical routine",
+    "Option of dutasteride, a stronger DHT blocker",
+    "Focused men's-health platform",
+  ],
+  winnerId: "hims",
+  categories: [
+    {
+      name: "Pricing & Value",
+      winner: "provider1",
+      explanation: "Hims's core medications start low — generic finasteride around $20/month — with bundles and intro offers. Maximus positions its protocol as a premium, comprehensive plan, so it generally costs more for the core routine.",
+      supportingPoints: [
+        "Generic finasteride from ~$20/mo (Hims)",
+        "Bundles and intro offers (Hims)",
+        "Premium comprehensive protocol (Maximus)",
+        "No insurance required (both)",
+      ],
+    },
+    {
+      name: "Range & Options",
+      winner: "provider1",
+      explanation: "Hims offers the broader lineup — finasteride, topical and oral minoxidil, a 2-in-1 spray, shampoo, and supplements. Maximus keeps it focused on its all-in-one oral protocol.",
+      supportingPoints: [
+        "Topical + oral + spray + extras (Hims)",
+        "2-in-1 combined spray (Hims)",
+        "Focused oral protocol (Maximus)",
+        "Rx after online review (both)",
+      ],
+    },
+    {
+      name: "All-in-One Oral Protocol",
+      winner: "provider2",
+      explanation: "Maximus combines oral minoxidil with a DHT blocker into one daily oral formulation, so there's no topical routine to maintain. Hims offers oral options too, but not as a single combined protocol by default.",
+      supportingPoints: [
+        "One daily all-in-one oral dose (Maximus)",
+        "No topical routine to keep up (Maximus)",
+        "Oral options available (Hims)",
+        "Provider-guided dosing (both)",
+      ],
+    },
+    {
+      name: "Stronger DHT Option",
+      winner: "provider2",
+      explanation: "Maximus offers dutasteride — a more potent DHT blocker than finasteride — for men who want stronger hormonal control. Hims's DHT blocker is finasteride.",
+      supportingPoints: [
+        "Dutasteride option available (Maximus)",
+        "Stronger DHT suppression (Maximus)",
+        "Finasteride (Hims)",
+        "Prescribed after medical review (both)",
+      ],
+    },
+    {
+      name: "Brand & Getting Started",
+      winner: "provider1",
+      explanation: "Hims is a large, polished, widely recognized brand with a fast, simple signup. Maximus is a respected men's-health platform, but a smaller, more specialized name.",
+      supportingPoints: [
+        "Large, recognized brand (Hims)",
+        "Fast, simple signup (Hims)",
+        "Focused men's-health brand (Maximus)",
+        "Licensed provider oversight (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Starting Price", provider1Value: "From ~$20/mo (generic fin)", provider2Value: "Premium comprehensive plan", highlight: "provider1" },
+    { feature: "Format", provider1Value: "Topical, oral & 2-in-1 spray", provider2Value: "All-in-one oral protocol", highlight: "provider2" },
+    { feature: "DHT Blocker", provider1Value: "Finasteride", provider2Value: "Finasteride or dutasteride", highlight: "provider2" },
+    { feature: "Product Range", provider1Value: "Broad (spray, shampoo, more)", provider2Value: "Focused oral protocol", highlight: "provider1" },
+    { feature: "Brand", provider1Value: "Large mainstream brand", provider2Value: "Men's-health specialist", highlight: "provider1" },
+    { feature: "Consultation", provider1Value: "100% online", provider2Value: "100% online", highlight: "both" },
+  ],
+};
+
+const maximusNutrafolBattle: BattleData = {
+  slug: "maximus-vs-nutrafol",
+  provider1Id: "maximus",
+  provider2Id: "nutrafol",
+  title: "Maximus vs Nutrafol: Prescription Protocol vs Drug-Free (2026)",
+  subtitle: "Maximus vs Nutrafol, compared — a potent prescription oral protocol vs a drug-free supplement. Which is right for you?",
+  description: "Maximus vs Nutrafol compared: Maximus is a prescription oral protocol (minoxidil + finasteride/dutasteride); Nutrafol is a drug-free supplement for men & women. See which fits your goals in 2026.",
+  intro: "Maximus and Nutrafol sit at opposite ends of the hair loss spectrum. Maximus prescribes a potent all-in-one oral protocol combining oral minoxidil with a DHT blocker (finasteride or dutasteride) — the proven, medication-based route. Nutrafol skips drugs entirely: it's a physician-formulated supplement that targets root causes like stress and nutrition, and works for both men and women. Here's how they compare.",
+  verdict: "For men focused on maximum effectiveness against pattern hair loss, Maximus takes this one — its prescription protocol uses the actives with the strongest evidence. Nutrafol is the better choice if you want a completely drug-free option, are a woman, or can't take prescription medications. Because they work in entirely different ways, some people even combine them.",
+  verdictWinnerPoints: [
+    "Proven prescription actives (minoxidil + DHT blocker)",
+    "Potent all-in-one oral protocol",
+    "Option of dutasteride for stronger DHT control",
+  ],
+  verdictLoserPoints: [
+    "Completely drug-free supplement",
+    "Works for both men and women",
+    "Targets stress, hormones & nutrition — no prescription",
+  ],
+  winnerId: "maximus",
+  categories: [
+    {
+      name: "Proven Effectiveness",
+      winner: "provider1",
+      explanation: "Maximus uses the actives with the strongest evidence for pattern hair loss — minoxidil plus a DHT blocker. Nutrafol's ingredients are clinically tested, but as a supplement the evidence is less robust than the prescription medications.",
+      supportingPoints: [
+        "Prescription minoxidil + DHT blocker (Maximus)",
+        "Strongest evidence base (Maximus)",
+        "Clinically tested supplement ingredients (Nutrafol)",
+        "Results take months either way",
+      ],
+    },
+    {
+      name: "Potency & DHT Control",
+      winner: "provider1",
+      explanation: "Maximus directly blocks DHT — the hormone behind male pattern loss — and offers dutasteride for even stronger control. Nutrafol includes botanicals like saw palmetto that may gently influence DHT, but not to the same degree.",
+      supportingPoints: [
+        "Direct DHT blockade (Maximus)",
+        "Dutasteride option for stronger control (Maximus)",
+        "Botanical, gentler approach (Nutrafol)",
+        "Provider oversight (Maximus)",
+      ],
+    },
+    {
+      name: "Drug-Free Option",
+      winner: "provider2",
+      explanation: "Nutrafol is completely drug-free, which appeals to people wary of medication side effects and requires no prescription. Maximus is built around prescription medications.",
+      supportingPoints: [
+        "100% drug-free supplement (Nutrafol)",
+        "No prescription needed (Nutrafol)",
+        "Avoids medication side-effect concerns (Nutrafol)",
+        "Prescription-based protocol (Maximus)",
+      ],
+    },
+    {
+      name: "Who It Treats",
+      winner: "provider2",
+      explanation: "Nutrafol has formulas for men, women, menopause, and postpartum. Maximus is a men's-health brand, so its protocol is aimed at men.",
+      supportingPoints: [
+        "Formulas for men and women (Nutrafol)",
+        "Menopause & postpartum options (Nutrafol)",
+        "Men-focused protocol (Maximus)",
+        "Physician-formulated (Nutrafol)",
+      ],
+    },
+    {
+      name: "All-in-One Convenience",
+      winner: "provider1",
+      explanation: "Maximus combines its actives into one daily oral dose — no topical routine and no separate products. Nutrafol is also a simple daily capsule, though it's a supplement rather than a complete treatment.",
+      supportingPoints: [
+        "One daily all-in-one oral dose (Maximus)",
+        "No topical routine (Maximus)",
+        "Simple daily capsule (Nutrafol)",
+        "Subscription with delivery (both)",
+      ],
+    },
+  ],
+  features: [
+    { feature: "Type", provider1Value: "Prescription oral protocol", provider2Value: "Drug-free supplement", highlight: "provider1" },
+    { feature: "Core Actives", provider1Value: "Minoxidil + finasteride/dutasteride", provider2Value: "Botanicals & nutrients", highlight: "provider1" },
+    { feature: "Treats Women", provider1Value: "Men-focused", provider2Value: "Men and women", highlight: "provider2" },
+    { feature: "Prescription", provider1Value: "Required (online review)", provider2Value: "Not required", highlight: "provider2" },
+    { feature: "Format", provider1Value: "Daily oral dose", provider2Value: "Daily capsule", highlight: "both" },
+    { feature: "Delivery", provider1Value: "Discreet home delivery", provider2Value: "Discreet home delivery", highlight: "both" },
+  ],
+};
+
 function buildInitialConfig(): SiteConfig {
   return {
     ...defaultConfig,
@@ -833,7 +1007,7 @@ function buildInitialConfig(): SiteConfig {
     faqs: faqsJson,
     reviews: defaultReviews,
     articles: defaultArticlesData,
-    battles: [himsKeepsBattle, himsRomanBattle, keepsRomanBattle, himsHappyheadBattle, himsNutrafolBattle],
+    battles: [himsKeepsBattle, himsRomanBattle, keepsRomanBattle, himsHappyheadBattle, himsNutrafolBattle, himsMaximusBattle, maximusNutrafolBattle],
     sidebars: [
       {
         id: "articles-default",
