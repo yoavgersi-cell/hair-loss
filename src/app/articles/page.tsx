@@ -6,16 +6,16 @@ import { getConfig } from "@/lib/config-store";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Weight Loss Articles — Research, Guides & Expert Insights",
+  title: "Hair Loss Articles — Research, Guides & Expert Insights",
   description:
-    "Expert articles on GLP-1 medications, weight loss strategies, and choosing the right telehealth provider. Evidence-based guides updated regularly.",
+    "Expert articles on hair loss treatments, finasteride and minoxidil, and choosing the right telehealth provider. Evidence-based guides updated regularly.",
   alternates: {
     canonical: "https://www.tophairloss.io/articles",
   },
   openGraph: {
-    title: "Weight Loss Articles — Research, Guides & Expert Insights",
+    title: "Hair Loss Articles — Research, Guides & Expert Insights",
     description:
-      "Expert articles on GLP-1 medications, weight loss strategies, and choosing the right provider.",
+      "Expert articles on hair loss treatments and choosing the right provider.",
     url: "https://www.tophairloss.io/articles",
   },
 };
@@ -65,8 +65,8 @@ export default async function ArticlesPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Weight Loss Articles — Research, Guides & Expert Insights",
-    description: "Expert articles on GLP-1 medications, weight loss strategies, and choosing the right telehealth provider.",
+    name: "Hair Loss Articles — Research, Guides & Expert Insights",
+    description: "Expert articles on hair loss treatments, finasteride and minoxidil, and choosing the right telehealth provider.",
     url: "https://www.tophairloss.io/articles",
     mainEntity: {
       "@type": "ItemList",
@@ -104,8 +104,8 @@ export default async function ArticlesPage() {
             Articles
           </h1>
           <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-gray-500">
-            Evidence-based guides on weight loss medications, treatment
-            expectations, and making informed decisions about your health.
+            Evidence-based guides on hair loss treatments, what to expect, and
+            making informed decisions about your hair.
           </p>
         </div>
 

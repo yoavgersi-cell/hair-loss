@@ -206,8 +206,8 @@ export default async function BattlePage({
     if (n.includes("medical") || n.includes("care") || n.includes("support") || n.includes("monitor")) return `Which has better medical support, ${p1.name} or ${p2.name}?`;
     if (n.includes("customer") || n.includes("experience") || n.includes("service") || n.includes("personal")) return `Which has better customer reviews, ${p1.name} or ${p2.name}?`;
     if (n.includes("flexib")) return `Which offers more flexible plans, ${p1.name} or ${p2.name}?`;
-    if (n.includes("focus") || n.includes("simplic")) return `Which is more focused on weight loss, ${p1.name} or ${p2.name}?`;
-    if (n.includes("range") || n.includes("beyond")) return `Does ${p2.name} offer more than weight loss compared to ${p1.name}?`;
+    if (n.includes("focus") || n.includes("simplic")) return `Which is more focused on hair loss, ${p1.name} or ${p2.name}?`;
+    if (n.includes("range") || n.includes("beyond")) return `Does ${p2.name} offer more than the basics compared to ${p1.name}?`;
     if (n.includes("brand") || n.includes("track") || n.includes("pharmacy")) return `Which is the more established brand, ${p1.name} or ${p2.name}?`;
     if (n.includes("transparen") || n.includes("certif")) return `Which is more transparent about pricing, ${p1.name} or ${p2.name}?`;
     return `${name}: ${p1.name} or ${p2.name}?`;

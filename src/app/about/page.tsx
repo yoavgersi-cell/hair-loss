@@ -9,7 +9,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "About TopHairLoss — Our Mission, Team & Review Methodology",
   description:
-    "Learn how tophairloss.io independently ranks and reviews weight loss providers. Our editorial methodology, review process, medical advisory approach, and commitment to unbiased comparisons.",
+    "Learn how tophairloss.io independently ranks and reviews hair loss providers. Our editorial methodology, review process, medical advisory approach, and commitment to unbiased comparisons.",
   alternates: {
     canonical: "https://www.tophairloss.io/about",
   },
@@ -42,7 +42,7 @@ export default async function AboutPage() {
             About TopHairLoss
           </h1>
           <p className="mt-3 max-w-[600px] text-[16px] leading-relaxed text-gray-500">
-            We help Americans make informed decisions about GLP-1 weight loss treatment
+            We help Americans make informed decisions about hair loss treatment
             by independently comparing telehealth providers on pricing, medical support,
             and treatment quality.
           </p>
@@ -54,8 +54,8 @@ export default async function AboutPage() {
         <section className="mb-12">
           <h2 className="mb-4 text-[22px] font-bold text-[#191919]">Our Mission</h2>
           <p className="mb-4 text-[16px] leading-[1.75] text-gray-600">
-            The GLP-1 weight loss market has grown rapidly, with dozens of telehealth providers
-            now offering semaglutide and tirzepatide online. For patients, this creates a
+            The hair loss market has grown rapidly, with dozens of telehealth providers
+            now offering finasteride and minoxidil online. For patients, this creates a
             confusing landscape of options with varying pricing, medication quality, medical
             oversight, and support levels.
           </p>
@@ -71,9 +71,9 @@ export default async function AboutPage() {
           <h2 className="mb-6 text-[22px] font-bold text-[#191919]">What We Do</h2>
           <div className="grid gap-6 sm:grid-cols-3">
             {[
-              { icon: Search, title: "Research Providers", desc: "We evaluate every major telehealth weight loss provider on pricing, medications, medical oversight, and patient experience." },
+              { icon: Search, title: "Research Providers", desc: "We evaluate every major telehealth hair loss provider on pricing, medications, medical oversight, and patient experience." },
               { icon: BarChart3, title: "Compare Side by Side", desc: "Our comparison tools let you see exactly how providers differ on the factors that matter most to you." },
-              { icon: BookOpen, title: "Educate Patients", desc: "Our articles and guides help you understand GLP-1 medications, side effects, costs, and what to expect from treatment." },
+              { icon: BookOpen, title: "Educate Patients", desc: "Our articles and guides help you understand hair loss medications, side effects, costs, and what to expect from treatment." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="rounded-xl border border-gray-200 bg-white p-5">
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#0C4B75]/5">
@@ -100,7 +100,7 @@ export default async function AboutPage() {
           <div className="space-y-4">
             {[
               { category: "Medical Credibility", weight: "25%", desc: "Licensed physician oversight, medical evaluation quality, ongoing monitoring, and clinical protocols." },
-              { category: "Medication Access", weight: "20%", desc: "Range of GLP-1 medications offered (semaglutide, tirzepatide), formulations available, and pharmacy quality." },
+              { category: "Treatment Access", weight: "20%", desc: "Range of treatments offered (finasteride, minoxidil, oral & topical, custom), formulations available, and pharmacy quality." },
               { category: "Pricing & Value", weight: "20%", desc: "Total monthly cost including medication, consultations, delivery. Transparency of pricing and absence of hidden fees." },
               { category: "Patient Experience", weight: "15%", desc: "Enrollment process speed, user interface quality, customer support responsiveness, and delivery reliability." },
               { category: "Clinical Support", weight: "10%", desc: "Availability of follow-up consultations, dose adjustments, side effect management, and ongoing medical guidance." },
@@ -140,8 +140,8 @@ export default async function AboutPage() {
             </p>
             <p>
               <strong className="text-[#191919]">Evidence-based.</strong> Our medical content references
-              published clinical trial data, FDA information, and established medical guidelines. We cite
-              specific studies (STEP, SURMOUNT) when discussing medication effectiveness.
+              published clinical evidence, FDA information, and established medical guidelines when
+              discussing how treatments like finasteride and minoxidil work and how effective they are.
             </p>
             <p>
               <strong className="text-[#191919]">Regular updates.</strong> We continuously review and
@@ -185,9 +185,9 @@ export default async function AboutPage() {
             <p className="text-[15px] leading-[1.75] text-gray-600">
               TopHairLoss.io is not a medical provider and does not prescribe medications.
               The information on this site is for educational and comparison purposes only and
-              should not replace professional medical advice. GLP-1 medications are prescription
+              should not replace professional medical advice. hair loss medications are prescription
               drugs that require evaluation and supervision by a licensed healthcare provider.
-              Always consult with a qualified physician before starting any weight loss medication.
+              Always consult with a qualified physician before starting any hair loss medication.
               Individual results vary. Side effects may occur.
             </p>
           </div>

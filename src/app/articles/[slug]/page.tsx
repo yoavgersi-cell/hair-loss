@@ -147,10 +147,10 @@ export default async function ArticlePage({
       "@id": `https://www.tophairloss.io/articles/${slug}`,
     },
     keywords: [
-      "weight loss",
-      "GLP-1",
-      "semaglutide",
-      "tirzepatide",
+      "hair loss",
+      "finasteride",
+      "minoxidil",
+      "hair loss treatment",
       article.category.toLowerCase(),
       ...article.sections.map((s) => s.heading),
     ],
@@ -273,32 +273,19 @@ export default async function ArticlePage({
 
                 {/* Editorial callout after 4th section */}
                 {i === 3 && article.sections.length > 4 && (
-                  <div className="my-10 overflow-hidden rounded-xl bg-transparent">
-                    <div className="flex flex-col sm:flex-row">
-                      <div className="flex-1 py-6 pr-6 sm:py-8 sm:pr-8">
-                        <h3 className="mb-3 text-[18px] font-bold leading-tight text-[#0C4B75] sm:text-[20px]">
-                          What To Know Before Starting GLP-1 Treatment
-                        </h3>
-                        <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
-                          Before starting GLP-1 treatment, it&apos;s important to understand a few key things. These medications require a prescription from a licensed clinician and aren&apos;t suitable for everyone. Some people may experience side effects, especially during the first few weeks as the body adjusts.
-                        </p>
-                        <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
-                          GLP-1s also tend to work best when combined with basic lifestyle habits like balanced nutrition and regular physical activity.
-                        </p>
-                        <p className="text-[16px] leading-[1.75] text-gray-600">
-                          That&apos;s why choosing a provider that offers proper medical screening and ongoing follow-up support is essential for both safety and long-term success.
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-center sm:w-[260px] sm:shrink-0">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src="/editorial-injection.png"
-                          alt="Woman preparing GLP-1 weight loss injection"
-                          className="h-[200px] w-full object-cover sm:h-full sm:rounded-r-xl"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
+                  <div className="my-10 rounded-xl border border-[#0C4B75]/10 bg-[#0C4B75]/[0.03] p-6 sm:p-8">
+                    <h3 className="mb-3 text-[18px] font-bold leading-tight text-[#0C4B75] sm:text-[20px]">
+                      What To Know Before Starting Treatment
+                    </h3>
+                    <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
+                      Prescription treatments like finasteride require a consultation with a licensed clinician and aren&apos;t right for everyone — finasteride, in particular, is for men and isn&apos;t safe for women who are or may become pregnant. Some people experience side effects, so proper medical screening matters.
+                    </p>
+                    <p className="mb-3 text-[16px] leading-[1.75] text-gray-600">
+                      Hair loss treatments also take time and consistency. Most people don&apos;t see visible results for 3–6 months, and the medications only keep working while you keep using them.
+                    </p>
+                    <p className="text-[16px] leading-[1.75] text-gray-600">
+                      That&apos;s why choosing a provider that offers proper medical oversight and ongoing follow-up is essential for both safety and long-term results.
+                    </p>
                   </div>
                 )}
 
@@ -334,7 +321,7 @@ export default async function ArticlePage({
           {/* CTA box */}
           <div className="mt-12 rounded-xl border border-gray-200 bg-white p-6 text-center sm:p-8">
             <p className="text-[18px] font-bold text-[#191919]">
-              Ready to compare weight loss providers?
+              Ready to compare hair loss providers?
             </p>
             <p className="mt-1 text-[14px] text-gray-500">
               See how top providers stack up on pricing, medical support, and

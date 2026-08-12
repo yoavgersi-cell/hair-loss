@@ -9,19 +9,19 @@ import { getConfig } from "@/lib/config-store";
 
 export const revalidate = 60;
 
-// Homepage-specific metadata targeting the high-intent "best weight loss"
-// commercial queries (best weight loss injections / programs / providers).
+// Homepage-specific metadata targeting the high-intent "best hair loss"
+// commercial queries (best hair loss injections / programs / providers).
 export const metadata: Metadata = {
   title: {
-    absolute: "Best Weight Loss Injections & Programs 2026 — Compare Top Providers",
+    absolute: "Best Hair Loss Treatments & Providers 2026 — Compare Top Providers",
   },
   description:
-    "Compare the best weight loss injections and programs of 2026. Top GLP-1 providers ranked by pricing, medications, medical support, and value — find your best fit.",
+    "Compare the best hair loss treatments and providers of 2026. Top hair loss providers ranked by pricing, medications, medical support, and value — find your best fit.",
   alternates: { canonical: "https://www.tophairloss.io" },
   openGraph: {
-    title: "Best Weight Loss Injections & Programs 2026 — Compare Top Providers",
+    title: "Best Hair Loss Treatments & Providers 2026 — Compare Top Providers",
     description:
-      "Compare the best weight loss injections and programs of 2026 — top GLP-1 providers ranked by price, support, and value.",
+      "Compare the best hair loss treatments and providers of 2026 — top hair loss providers ranked by price, support, and value.",
     url: "https://www.tophairloss.io",
     type: "website",
   },
@@ -91,9 +91,9 @@ export default async function HomePage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Top Weight Loss Providers 2026 — Compare Trusted Providers Side by Side",
+    name: "Top Hair Loss Providers 2026 — Compare Trusted Providers Side by Side",
     description:
-      "Compare pricing, medications, medical support, and overall value across the top weight loss providers of 2026.",
+      "Compare pricing, medications, medical support, and overall value across the top hair loss providers of 2026.",
     url: "https://www.tophairloss.io",
     mainEntity: {
       "@type": "ItemList",

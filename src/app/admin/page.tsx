@@ -1118,7 +1118,7 @@ export default function AdminPage() {
                     { name: "Medication Options", winner: "tie" as const, explanation: "", supportingPoints: [] },
                   ],
                   features: [
-                    { feature: "GLP-1 Treatment Access", provider1Value: "", provider2Value: "" },
+                    { feature: "Treatment Access", provider1Value: "", provider2Value: "" },
                     { feature: "Online Consultation", provider1Value: "", provider2Value: "" },
                     { feature: "Home Delivery", provider1Value: "", provider2Value: "" },
                   ],
@@ -1135,7 +1135,7 @@ export default function AdminPage() {
         {/* Pages (Landing Pages) Tab */}
         {activeTab === "pages" && (
           <div className="space-y-4">
-            <p className="text-xs text-gray-400">Create comparison landing pages (e.g. /semaglutide, /ozempic). Same layout as the homepage but with custom hero text and provider ranking.</p>
+            <p className="text-xs text-gray-400">Create comparison landing pages (e.g. /finasteride, /minoxidil). Same layout as the homepage but with custom hero text and provider ranking.</p>
             {(config.landingPages ?? []).map((lp, index) => {
               const updateLP = (patch: Record<string, unknown>) => {
                 const landingPages = [...(config.landingPages ?? [])];
@@ -1516,7 +1516,7 @@ export default function AdminPage() {
                 ))}
               </div>
               <p className="mt-2 text-xs text-gray-400">
-                Classic: <span className="font-medium">/find-your-match</span> — Chat: <span className="font-medium">/find-your-match-weight-loss</span>
+                Quiz page: <span className="font-medium">/find-your-match</span>
               </p>
             </div>
 

@@ -12,14 +12,14 @@ export const revalidate = 60;
 const CANONICAL = "https://www.tophairloss.io/how-we-rank";
 
 export const metadata: Metadata = {
-  title: "How We Rank & Review Weight Loss Providers — Our Methodology",
+  title: "How We Rank & Review Hair Loss Providers — Our Methodology",
   description:
-    "Our full methodology for ranking and reviewing GLP-1 weight loss providers: the factors we score, where our data comes from, how we verify accuracy, and how we pick winners in head-to-head comparisons.",
+    "Our full methodology for ranking and reviewing hair loss providers: the factors we score, where our data comes from, how we verify accuracy, and how we pick winners in head-to-head comparisons.",
   alternates: { canonical: CANONICAL },
   openGraph: {
-    title: "How We Rank & Review Weight Loss Providers — Our Methodology",
+    title: "How We Rank & Review Hair Loss Providers — Our Methodology",
     description:
-      "The factors we score, where our data comes from, how we verify accuracy, and how we pick winners in our weight loss provider comparisons.",
+      "The factors we score, where our data comes from, how we verify accuracy, and how we pick winners in our hair loss provider comparisons.",
     url: CANONICAL,
     type: "article",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const FACTORS = [
   { category: "Medical Credibility", weight: "25%", desc: "Licensed provider oversight, quality of the medical evaluation, ongoing monitoring, pharmacy standards, and any third-party certifications (e.g. LegitScript)." },
-  { category: "Medication Access", weight: "20%", desc: "Range of GLP-1 options offered (semaglutide, tirzepatide, brand-name), formulations, and dosing flexibility." },
+  { category: "Treatment Access", weight: "20%", desc: "Range of treatments offered (finasteride, minoxidil, oral & topical, custom), formulations, and dosing flexibility." },
   { category: "Pricing & Value", weight: "20%", desc: "Total monthly cost including medication, consultations, and delivery — plus pricing transparency and the absence of hidden fees." },
   { category: "Patient Experience", weight: "15%", desc: "Enrollment speed, interface quality, support responsiveness, delivery reliability, and recent verified customer feedback." },
   { category: "Clinical Support", weight: "10%", desc: "Follow-up consultations, dose adjustments, side-effect management, and ongoing guidance through treatment." },
@@ -38,7 +38,7 @@ const SOURCES = [
   { icon: Database, title: "The providers' own materials", desc: "We pull pricing, medications, shipping, and the medical model directly from each provider's official website and landing pages — so what you read here matches what you'll see when you enroll." },
   { icon: ClipboardCheck, title: "Recent verified customer reviews", desc: "We read current Trustpilot reviews to gauge real-world customer experience — communication, delivery, and support — not just marketing claims." },
   { icon: Scale, title: "In-house research", desc: "Our editors independently walk enrollment flows, compare pricing side by side, and track how each provider's offering changes over time." },
-  { icon: ShieldCheck, title: "Clinical literature", desc: "Medical claims reference published trial data (such as STEP and SURMOUNT) and FDA information — not opinion." },
+  { icon: ShieldCheck, title: "Clinical literature", desc: "Medical claims reference published clinical evidence and FDA information — not opinion." },
 ];
 
 export default async function HowWeRankPage() {
@@ -48,9 +48,9 @@ export default async function HowWeRankPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "How We Rank & Review Weight Loss Providers — Our Methodology",
+    name: "How We Rank & Review Hair Loss Providers — Our Methodology",
     description:
-      "Our full methodology for ranking and reviewing GLP-1 weight loss providers: the factors we score, where our data comes from, how we verify accuracy, and how we pick winners.",
+      "Our full methodology for ranking and reviewing hair loss providers: the factors we score, where our data comes from, how we verify accuracy, and how we pick winners.",
     url: CANONICAL,
     publisher: { "@type": "Organization", name: "tophairloss.io", url: "https://www.tophairloss.io" },
   };
@@ -79,7 +79,7 @@ export default async function HowWeRankPage() {
           <p className="mt-3 max-w-[640px] text-[16px] leading-relaxed text-gray-500">
             Every review and head-to-head comparison on this site is built on the same
             repeatable, evidence-first process. Here&rsquo;s exactly how we evaluate each
-            weight loss provider, where our information comes from, and how we keep it accurate.
+            hair loss provider, where our information comes from, and how we keep it accurate.
           </p>
           <LastUpdated date={CONTENT_LAST_UPDATED} className="mt-4" />
         </div>
@@ -91,8 +91,8 @@ export default async function HowWeRankPage() {
           <h2 className="mb-4 text-[22px] font-bold text-[#191919]">The 6 factors we score</h2>
           <p className="mb-6 text-[16px] leading-[1.75] text-gray-600">
             We rate every provider on a weighted evaluation across six core categories. The
-            weighting reflects what matters most for a safe, affordable, and effective GLP-1
-            weight loss program.
+            weighting reflects what matters most for a safe, affordable, and effective hair
+            loss treatment plan.
           </p>
           <div className="space-y-4">
             {FACTORS.map(({ category, weight, desc }) => (
@@ -227,9 +227,9 @@ export default async function HowWeRankPage() {
             <p className="text-[15px] leading-[1.75] text-gray-600">
               tophairloss.io is not a medical provider and does not prescribe medications. The
               information on this site is for educational and comparison purposes only and should not
-              replace professional medical advice. GLP-1 medications are prescription drugs that require
+              replace professional medical advice. hair loss medications are prescription drugs that require
               evaluation and supervision by a licensed healthcare provider. Always consult a qualified
-              physician before starting any weight loss medication. Individual results vary.
+              physician before starting any hair loss medication. Individual results vary.
             </p>
           </div>
         </section>

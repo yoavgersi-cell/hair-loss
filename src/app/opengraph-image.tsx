@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "TopHairLoss — Compare Top Weight Loss Programs 2026";
+export const alt = "TopHairLoss — Compare Top Hair Loss Treatments 2026";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -61,7 +61,7 @@ export default function OGImage() {
             marginBottom: "24px",
           }}
         >
-          Best Weight Loss Programs 2026
+          Best Hair Loss Treatments 2026
         </div>
         <div
           style={{
@@ -70,7 +70,7 @@ export default function OGImage() {
             lineHeight: 1.5,
           }}
         >
-          Compare top GLP-1 providers side by side. Expert rankings, pricing, and honest reviews.
+          Compare top hair loss providers side by side. Expert rankings, pricing, and honest reviews.
         </div>
       </div>
     ),

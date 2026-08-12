@@ -257,7 +257,7 @@ export default function FindYourMatchPage() {
       <div className={`bg-[#F7F8FA] px-5 py-10 sm:py-20 transition-all duration-[280ms] ease-out ${phaseTransitioning ? "opacity-0 scale-[0.97]" : "opacity-100 scale-100"}`}>
         <div className="mx-auto w-full max-w-[540px] text-center">
           <h1 className="text-[28px] font-extrabold text-[#191919] leading-[1.15] sm:text-[46px]">
-            Find Your Best Weight Loss Provider
+            Find Your Best Hair Loss Provider
           </h1>
           <p className="mx-auto mt-3 max-w-[360px] text-[15px] font-[450] leading-[1.55] text-gray-500 sm:mt-5 sm:max-w-[460px] sm:text-[20px]">
             Answer a few questions to receive your personalized provider recommendation.
@@ -376,7 +376,7 @@ export default function FindYourMatchPage() {
           </div>
 
           <p className="mb-1.5 text-[14px] font-medium text-gray-500 sm:text-[15px]">
-            Comparing top weight loss providers...
+            Comparing top hair loss providers...
           </p>
           <p
             key={`text-${loadingIdx}`}
@@ -387,7 +387,7 @@ export default function FindYourMatchPage() {
 
           <div className="mt-12 flex flex-col items-center gap-1">
             <p className="text-[22px] font-extrabold text-[#191919] sm:text-[26px]">18,400+</p>
-            <p className="text-[12px] text-gray-400 sm:text-[13px]">people found their weight loss program with us</p>
+            <p className="text-[12px] text-gray-400 sm:text-[13px]">people found their hair loss treatment with us</p>
           </div>
         </div>
       </div></>

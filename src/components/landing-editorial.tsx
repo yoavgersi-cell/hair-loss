@@ -36,7 +36,7 @@ export function LandingEditorial({ sections }: LandingEditorialProps) {
           href="/articles"
           className="font-semibold text-[#0C4B75] hover:underline"
         >
-          weight loss articles
+          hair loss articles
         </Link>{" "}
         for more research and guides, or{" "}
         <Link

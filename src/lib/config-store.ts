@@ -264,8 +264,8 @@ const defaultExperts: Expert[] = [
     id: "research-team",
     name: "The TopHairLoss Research Team",
     role: "Editorial & Research",
-    bio: "Our independent research team compares weight-loss providers across pricing, medications, medical oversight, and real customer experience. We update our analysis regularly and rank providers on the evidence — not on who pays us.",
-    specialties: ["Provider comparison", "GLP-1 treatment", "Pricing analysis"],
+    bio: "Our independent research team compares hair loss providers across pricing, medications, medical oversight, and real customer experience. We update our analysis regularly and rank providers on the evidence — not on who pays us.",
+    specialties: ["Provider comparison", "Hair loss treatment", "Pricing analysis"],
   },
   {
     id: "content-reviewer",
@@ -690,12 +690,12 @@ function buildInitialConfig(): SiteConfig {
     ],
     landingPages: [],
     quiz: {
-      welcomeTitle: "Find Your Best Weight Loss Provider",
+      welcomeTitle: "Find Your Best Hair Loss Provider",
       welcomeSubtitle: "Answer 4 quick questions and we'll match you with the provider that best fits your goals.",
       welcomeTrustPoints: ["Takes less than 1 minute", "Personalized provider recommendations", "Completely free"],
       welcomeCta: "Find My Match",
       midFlowMessage: "Great! Almost done — just a few more.",
-      pageTitle: "Find Your Best Weight Loss Provider",
+      pageTitle: "Find Your Best Hair Loss Provider",
       pageSubtitle: "Answer 4 quick questions and we'll match you with the provider that best fits your goals.",
       resultsTitle: "Your Best Match",
       resultsSubtitle: "Based on your answers, this provider is the strongest fit for your goals and preferences.",
@@ -725,19 +725,19 @@ function buildInitialConfig(): SiteConfig {
       questions: [
         {
           id: "goal",
-          title: "What's your main weight loss goal?",
-          subtitle: "This helps us recommend providers that best match your goals.",
+          title: "What best describes your hair loss?",
+          subtitle: "This helps us recommend providers that best match your needs.",
           type: "cards" as const,
           options: [
-            { label: "Lose up to <strong>20 lbs</strong>", value: "light" },
-            { label: "Lose <strong>20–50 lbs</strong>", value: "moderate" },
-            { label: "Lose <strong>50+ lbs</strong>", value: "significant" },
+            { label: "<strong>Receding hairline</strong>", value: "light" },
+            { label: "<strong>Thinning at the crown</strong>", value: "moderate" },
+            { label: "<strong>Overall thinning</strong>", value: "significant" },
             { label: "<strong>I'm not sure yet</strong>", value: "exploring" },
           ],
         },
         {
           id: "experience",
-          title: "Have you tried weight loss meds before?",
+          title: "Have you tried hair loss treatment before?",
           subtitle: "No wrong answer — this just helps us personalize.",
           type: "cards" as const,
           options: [

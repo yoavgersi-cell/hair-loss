@@ -6,16 +6,16 @@ import Link from "next/link";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Weight Loss Provider Reviews — In-Depth Expert Analysis",
+  title: "Hair Loss Provider Reviews — In-Depth Expert Analysis",
   description:
-    "Read expert reviews of the top weight loss providers offering GLP-1 medications like semaglutide and tirzepatide. Compare pricing, treatment options, pros and cons.",
+    "Read expert reviews of the top hair loss providers offering treatments like finasteride and minoxidil. Compare pricing, treatment options, pros and cons.",
   alternates: {
     canonical: "https://www.tophairloss.io/reviews",
   },
   openGraph: {
-    title: "Weight Loss Provider Reviews — In-Depth Expert Analysis",
+    title: "Hair Loss Provider Reviews — In-Depth Expert Analysis",
     description:
-      "Read expert reviews of leading weight loss providers. Compare pricing, treatment options, and customer experience.",
+      "Read expert reviews of leading hair loss providers. Compare pricing, treatment options, and customer experience.",
     url: "https://www.tophairloss.io/reviews",
   },
 };
@@ -47,8 +47,8 @@ export default async function ReviewsPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Weight Loss Provider Reviews",
-    description: "Expert reviews of top weight loss providers offering GLP-1 medications.",
+    name: "Hair Loss Provider Reviews",
+    description: "Expert reviews of top hair loss providers offering hair loss treatments.",
     numberOfItems: items.length,
     itemListElement: items.map(({ review, provider }, i) => ({
       "@type": "ListItem",
@@ -74,10 +74,10 @@ export default async function ReviewsPage() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#191919] sm:text-4xl">
-            Weight Loss Provider Reviews
+            Hair Loss Provider Reviews
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-gray-600">
-            In-depth reviews of the top weight loss providers. Read our expert
+            In-depth reviews of the top hair loss providers. Read our expert
             analysis of each program to find the best fit for your goals,
             budget, and lifestyle.
           </p>
