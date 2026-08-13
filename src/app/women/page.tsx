@@ -186,8 +186,8 @@ export default async function WomenPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <HeroSection
-        backgroundImageUrl=""
-        imageAlt="Woman with thick, healthy hair"
+        backgroundImageUrl="/hero.png"
+        imageAlt="Healthy, thick hair"
         updatedLabel={config.hero.updatedLabel}
         h1="Best Hair Loss Treatments for Women in 2026"
         h2="Compare the top women's hair loss treatments, side by side"
