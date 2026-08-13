@@ -17,8 +17,8 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-[#191919]">
-          <Link href="/" className="hover:text-[#0C4B75] transition-colors">
-            Compare
+          <Link href="/men" className="hover:text-[#0C4B75] transition-colors">
+            For Men
           </Link>
           <Link href="/women" className="hover:text-[#0C4B75] transition-colors">
             For Women
@@ -47,8 +47,8 @@ export function Header() {
       {/* Mobile menu */}
       {isOpen && (
         <nav className="sm:hidden border-t border-[#E5E5E5] bg-white px-4 py-3 space-y-3">
-          <Link href="/" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
-            Compare
+          <Link href="/men" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
+            For Men
           </Link>
           <Link href="/women" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
             For Women

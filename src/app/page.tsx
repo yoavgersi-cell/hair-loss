@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { HeroSection } from "@/components/hero-section";
 import { ComparisonCard } from "@/components/comparison-card";
 import { SocialProofBand } from "@/components/social-proof-bubble";
 import { Sidebar } from "@/components/sidebar";
-import { EditorialContent } from "@/components/editorial-content";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { AudiencePopup } from "@/components/audience-popup";
 import { getConfig } from "@/lib/config-store";
 
 export const revalidate = 60;
 
-// Homepage-specific metadata targeting the high-intent "best hair loss"
-// commercial queries (best hair loss injections / programs / providers).
+// Generic main hub. Targets the broad "best hair loss treatments" query and
+// acts as the brand entry point + segmenter into the men's and women's hubs.
 export const metadata: Metadata = {
   title: {
     absolute: "Best Hair Loss Treatments & Providers 2026 — Compare Top Providers",
   },
   description:
-    "Compare the best hair loss treatments and providers of 2026. Top hair loss providers ranked by pricing, medications, medical support, and value — find your best fit.",
+    "Compare the best hair loss treatments and providers of 2026 for men and women. Top providers ranked by pricing, medications, medical support, and value — find your best fit.",
   alternates: { canonical: "https://www.tophairloss.io" },
   openGraph: {
     title: "Best Hair Loss Treatments & Providers 2026 — Compare Top Providers",
     description:
-      "Compare the best hair loss treatments and providers of 2026 — top hair loss providers ranked by price, support, and value.",
+      "Compare the best hair loss treatments and providers of 2026 for men and women — ranked by price, support, and value.",
     url: "https://www.tophairloss.io",
     type: "website",
   },
@@ -31,7 +33,6 @@ export default async function HomePage() {
   const config = await getConfig();
   const { providerOrder, positions } = config.ranking;
 
-  // Build display list by merging provider data with ranking position data
   const displayList = providerOrder
     .map((id, index) => {
       const provider = config.providers.find((p) => p.id === id);
@@ -68,32 +69,26 @@ export default async function HomePage() {
       badge?: string;
     }>;
 
-  // Build sidebar providers in ranking order
   const sidebarProviders = providerOrder
     .map((id) => config.providers.find((p) => p.id === id))
     .filter(Boolean) as typeof config.providers;
 
-  // JSON-LD: FAQPage schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: config.faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
 
-  // JSON-LD: WebPage + ItemList for comparison
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Top Hair Loss Providers 2026 — Compare Trusted Providers Side by Side",
     description:
-      "Compare pricing, medications, medical support, and overall value across the top hair loss providers of 2026.",
+      "Compare pricing, medications, medical support, and overall value across the top hair loss providers of 2026 for men and women.",
     url: "https://www.tophairloss.io",
     mainEntity: {
       "@type": "ItemList",
@@ -116,16 +111,19 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <AudiencePopup />
       <HeroSection
-        backgroundImageUrl={config.hero.backgroundImageUrl}
-        imageAlt={config.hero.imageAlt}
+        backgroundImageUrl="/hero.png"
+        imageAlt="Healthy, thick hair"
         updatedLabel={config.hero.updatedLabel}
-        h1={config.hero.h1}
-        h2={config.hero.h2}
-        description={config.hero.description}
+        h1="Best Hair Loss Treatments in 2026"
+        h2="Compare the top hair loss treatments for men & women"
+        description="Compare trusted hair loss providers on pricing, treatments, and medical support — and find the right option, whether you're a man or a woman."
       />
 
-      <section className="mx-auto max-w-[1200px] px-4 pt-6 pb-6">
+      <AudienceChooser />
+
+      <section className="mx-auto max-w-[1200px] px-4 pt-2 pb-6">
         <div className="flex gap-6 items-start">
           <div className="min-w-0 flex-1 space-y-4">
             {displayList.map((product, idx) => (
@@ -141,8 +139,114 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <EditorialContent />
+      <GeneralEditorial />
       <FaqAccordion items={config.faqs} />
     </>
+  );
+}
+
+// Visible, always-available segmenter (the popup's non-modal counterpart).
+// Two cards routing to the dedicated men's / women's hubs.
+function AudienceChooser() {
+  return (
+    <section className="mx-auto max-w-[1200px] px-4 pt-6">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Link
+          href="/men"
+          className="group flex items-center justify-between gap-4 rounded-xl border border-[#E5E5E5] bg-white p-5 shadow-sm transition-all hover:border-[#0C4B75] hover:shadow-md"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-[34px]" aria-hidden>👨</span>
+            <div>
+              <p className="text-[16px] font-bold text-[#191919]">Hair Loss Treatments for Men</p>
+              <p className="text-[13px] text-gray-500">Finasteride, minoxidil & full-strength Rx options</p>
+            </div>
+          </div>
+          <ArrowRight className="h-5 w-5 shrink-0 text-[#0C4B75] transition-transform group-hover:translate-x-1" strokeWidth={2} />
+        </Link>
+
+        <Link
+          href="/women"
+          className="group flex items-center justify-between gap-4 rounded-xl border border-[#E5E5E5] bg-white p-5 shadow-sm transition-all hover:border-[#C0392B] hover:shadow-md"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-[34px]" aria-hidden>👩</span>
+            <div>
+              <p className="text-[16px] font-bold text-[#191919]">Hair Loss Treatments for Women</p>
+              <p className="text-[13px] text-gray-500">Minoxidil, spironolactone & drug-free options</p>
+            </div>
+          </div>
+          <ArrowRight className="h-5 w-5 shrink-0 text-[#C0392B] transition-transform group-hover:translate-x-1" strokeWidth={2} />
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+function GeneralEditorial() {
+  return (
+    <section className="mx-auto max-w-[1200px] px-4 py-10">
+      <div className="max-w-[820px] space-y-6 text-[15px] leading-[1.7] text-gray-700">
+        <div>
+          <h2 className="mb-3 text-[24px] font-bold text-[#191919]">
+            How to Choose a Hair Loss Treatment in 2026
+          </h2>
+          <p>
+            Hair loss is one of the most common concerns for both men and women — and today there are
+            more effective, science-backed treatments available online than ever before. The best
+            option for you depends on the cause of your hair loss, your gender, how far it&apos;s
+            progressed, and whether you prefer a prescription or a drug-free approach. Below we break
+            down the essentials, then compare the top providers side by side.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="mb-2 text-[19px] font-semibold text-[#191919]">Men&apos;s vs women&apos;s hair loss — different paths</h3>
+          <p>
+            The single most important factor is who the treatment is for. Men&apos;s hair loss is
+            usually driven by DHT and treated with finasteride plus minoxidil. Women generally
+            can&apos;t use finasteride the same way and lean on minoxidil, spironolactone, and drug-free
+            supplements. That&apos;s why we split our recommendations into dedicated hubs —{" "}
+            <Link href="/men" className="font-semibold text-[#0B5E9E] hover:underline">treatments for men</Link>{" "}
+            and{" "}
+            <Link href="/women" className="font-semibold text-[#0B5E9E] hover:underline">treatments for women</Link>{" "}
+            — so you only see the options built for you.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="mb-2 text-[19px] font-semibold text-[#191919]">Prescription vs drug-free</h3>
+          <p>
+            Prescription treatments like finasteride, minoxidil, and spironolactone have the strongest
+            clinical evidence and are prescribed online after a quick consult. Drug-free options —
+            physician-formulated supplements like Nutrafol — appeal to people who want to avoid a
+            prescription or complement one. Many of the top providers offer both.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="mb-2 text-[19px] font-semibold text-[#191919]">Oral vs topical</h3>
+          <p>
+            Most treatments come as a topical (applied to the scalp) or an oral (a pill). Topicals act
+            locally with fewer systemic effects; orals are more convenient and, for some, more
+            effective. The right format is a personal choice you can make with the provider&apos;s
+            medical team.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="mb-2 text-[19px] font-semibold text-[#191919]">How long until it works?</h3>
+          <p>
+            Whatever you choose, give it at least 3–6 months before judging results, with fuller
+            regrowth around 12 months. Hair grows slowly, so consistency matters more than any single
+            product. Use the comparison above — or jump to the{" "}
+            <Link href="/men" className="font-semibold text-[#0B5E9E] hover:underline">men&apos;s</Link>{" "}
+            or{" "}
+            <Link href="/women" className="font-semibold text-[#0B5E9E] hover:underline">women&apos;s</Link>{" "}
+            hub — to find the treatment and price that fit your goals.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

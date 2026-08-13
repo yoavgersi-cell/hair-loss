@@ -10,6 +10,7 @@ export function Footer() {
             <h4 className="mb-2 text-[12px] font-bold uppercase tracking-wider text-[#191919]">Compare</h4>
             <nav className="space-y-1.5">
               <Link href="/" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Top Providers</Link>
+              <Link href="/men" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">For Men</Link>
               <Link href="/women" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">For Women</Link>
               <Link href="/hims-vs-keeps" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Hims vs Keeps</Link>
               <Link href="/hims-vs-roman" className="block text-[13px] text-gray-500 hover:text-[#0C4B75]">Hims vs Roman</Link>
