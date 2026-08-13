@@ -1,4 +1,4 @@
-import { put, list } from "@vercel/blob";
+import { put, get } from "@vercel/blob";
 import { type SiteConfig, type ReviewData, type ArticleData, type BattleData, type LandingPageData, type TrustpilotReview, type Expert, defaultConfig } from "./config";
 import productsJson from "@/data/products.json";
 import faqsJson from "@/data/faqs.json";
@@ -1155,17 +1155,21 @@ let lastGoodConfig: SiteConfig | null = null;
 
 export async function getConfig(): Promise<SiteConfig> {
   try {
-    const { blobs } = await list({ prefix: BLOB_KEY });
-    if (blobs.length > 0) {
-      // Retry the blob fetch a few times before giving up on this request.
-      let res: Response | null = null;
-      for (let attempt = 0; attempt < 3; attempt++) {
-        res = await fetch(blobs[0].url, { cache: "no-store" });
-        if (res.ok) break;
+    // Private store: fetch the blob by pathname with authenticated access
+    // (the read-write token from BLOB_READ_WRITE_TOKEN). useCache:false so we
+    // always read the freshly-saved config, not a stale CDN copy.
+    let result: Awaited<ReturnType<typeof get>> = null;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        result = await get(BLOB_KEY, { access: "private", useCache: false });
+        break;
+      } catch {
         if (attempt < 2) await new Promise((r) => setTimeout(r, 150 * (attempt + 1)));
       }
-      if (res && res.ok) {
-        const saved = (await res.json()) as Partial<SiteConfig>;
+    }
+    if (result && result.stream) {
+      {
+        const saved = (await new Response(result.stream).json()) as Partial<SiteConfig>;
         const initial = buildInitialConfig();
         // Merge providers: keep saved, add new defaults by id
         // Seed lookup tolerant of admin-recreated providers whose ids differ
@@ -1254,7 +1258,7 @@ export async function getConfig(): Promise<SiteConfig> {
 
 export async function saveConfig(config: SiteConfig): Promise<void> {
   await put(BLOB_KEY, JSON.stringify(config, null, 2), {
-    access: "public",
+    access: "private",
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",
