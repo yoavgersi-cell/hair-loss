@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { HeroSection } from "@/components/hero-section";
 import { ComparisonCard } from "@/components/comparison-card";
 import { SocialProofBand } from "@/components/social-proof-bubble";
@@ -121,9 +120,7 @@ export default async function HomePage() {
         description="Compare trusted hair loss providers on pricing, treatments, and medical support — and find the right option, whether you're a man or a woman."
       />
 
-      <AudienceChooser />
-
-      <section className="mx-auto max-w-[1200px] px-4 pt-2 pb-6">
+      <section className="mx-auto max-w-[1200px] px-4 pt-6 pb-6">
         <div className="flex gap-6 items-start">
           <div className="min-w-0 flex-1 space-y-4">
             {displayList.map((product, idx) => (
@@ -142,44 +139,6 @@ export default async function HomePage() {
       <GeneralEditorial />
       <FaqAccordion items={config.faqs} />
     </>
-  );
-}
-
-// Visible, always-available segmenter (the popup's non-modal counterpart).
-// Two cards routing to the dedicated men's / women's hubs.
-function AudienceChooser() {
-  return (
-    <section className="mx-auto max-w-[1200px] px-4 pt-6">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Link
-          href="/men"
-          className="group flex items-center justify-between gap-4 rounded-xl border border-[#E5E5E5] bg-white p-5 shadow-sm transition-all hover:border-[#0C4B75] hover:shadow-md"
-        >
-          <div className="flex items-center gap-4">
-            <span className="text-[34px]" aria-hidden>👨</span>
-            <div>
-              <p className="text-[16px] font-bold text-[#191919]">Hair Loss Treatments for Men</p>
-              <p className="text-[13px] text-gray-500">Finasteride, minoxidil & full-strength Rx options</p>
-            </div>
-          </div>
-          <ArrowRight className="h-5 w-5 shrink-0 text-[#0C4B75] transition-transform group-hover:translate-x-1" strokeWidth={2} />
-        </Link>
-
-        <Link
-          href="/women"
-          className="group flex items-center justify-between gap-4 rounded-xl border border-[#E5E5E5] bg-white p-5 shadow-sm transition-all hover:border-[#C0392B] hover:shadow-md"
-        >
-          <div className="flex items-center gap-4">
-            <span className="text-[34px]" aria-hidden>👩</span>
-            <div>
-              <p className="text-[16px] font-bold text-[#191919]">Hair Loss Treatments for Women</p>
-              <p className="text-[13px] text-gray-500">Minoxidil, spironolactone & drug-free options</p>
-            </div>
-          </div>
-          <ArrowRight className="h-5 w-5 shrink-0 text-[#C0392B] transition-transform group-hover:translate-x-1" strokeWidth={2} />
-        </Link>
-      </div>
-    </section>
   );
 }
 
