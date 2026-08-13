@@ -27,18 +27,21 @@ export function HeroSection({
   return (
     <section className="relative w-full h-auto sm:h-[300px] lg:h-[340px] overflow-hidden bg-gradient-to-r from-[#eef5fc] via-[#e4eff9] to-[#d9e8f6]">
       {/* Transparent character cutout on the right over the blue background.
-          object-contain + bottom-anchored so the whole man shows, no crop.
-          Desktop only; mobile is just the blue background. */}
-      <div className="absolute inset-y-0 right-[2%] hidden w-[40%] sm:block">
-        <Image
-          src={backgroundImageUrl}
-          alt={imageAlt}
-          fill
-          priority
-          sizes="45vw"
-          className="object-contain object-bottom"
-        />
-      </div>
+          object-contain + bottom-anchored so the whole character shows, no crop.
+          Desktop only; mobile is just the blue background. Skipped entirely when
+          no image is set (e.g. the women hub before its hero art is added). */}
+      {backgroundImageUrl && (
+        <div className="absolute inset-y-0 right-[2%] hidden w-[40%] sm:block">
+          <Image
+            src={backgroundImageUrl}
+            alt={imageAlt}
+            fill
+            priority
+            sizes="45vw"
+            className="object-contain object-bottom"
+          />
+        </div>
+      )}
 
       {/* Content */}
       <div

@@ -980,6 +980,7 @@ function buildInitialConfig(): SiteConfig {
       tagline: p.tagline,
       logo: p.logo,
       smallLogo: `/logos/${p.id}-icon.svg`,
+      audience: (p as { audience?: "men" | "women" | "both" }).audience ?? "men",
       highlights: p.highlights,
       affiliateUrl: p.affiliateUrl,
       ctaText: p.ctaText,

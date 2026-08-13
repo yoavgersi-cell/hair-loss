@@ -20,6 +20,9 @@ export function Header() {
           <Link href="/" className="hover:text-[#0C4B75] transition-colors">
             Compare
           </Link>
+          <Link href="/women" className="hover:text-[#0C4B75] transition-colors">
+            For Women
+          </Link>
           <Link href="/reviews" className="hover:text-[#0C4B75] transition-colors">
             Reviews
           </Link>
@@ -46,6 +49,9 @@ export function Header() {
         <nav className="sm:hidden border-t border-[#E5E5E5] bg-white px-4 py-3 space-y-3">
           <Link href="/" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
             Compare
+          </Link>
+          <Link href="/women" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
+            For Women
           </Link>
           <Link href="/reviews" onClick={() => setIsOpen(false)} className="block text-[15px] font-medium text-[#191919] hover:text-[#0C4B75]">
             Reviews

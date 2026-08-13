@@ -26,6 +26,10 @@ export interface Provider {
   tagline: string;
   logo: string;
   smallLogo: string;
+  // Which audience hub(s) this provider belongs to. "both" surfaces on the
+  // men hub AND the women hub; "men"/"women" restrict it to one. Defaults to
+  // "men" when unset (the site was built men-first).
+  audience?: "men" | "women" | "both";
   sidebarImage?: string;
   highlights: string[];
   affiliateUrl: string;
