@@ -7,8 +7,8 @@ import { ComparisonLayout } from "@/components/comparison-layout";
 import { EditorialContent } from "@/components/editorial-content";
 import { LandingEditorial } from "@/components/landing-editorial";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { notFound } from "next/navigation";
-import { ArrowRight, Check, Minus, Trophy } from "lucide-react";
+import { notFound, permanentRedirect } from "next/navigation";
+import { ArrowRight, Check, Minus, ShieldCheck, Sparkles } from "lucide-react";
 import { LastUpdated } from "@/components/last-updated";
 import { ProviderCta } from "@/components/provider-cta";
 import { TrustpilotCarousel } from "@/components/trustpilot-carousel";
@@ -55,14 +55,30 @@ export async function generateMetadata({
   const battle = (config.battles ?? []).find((b) => b.slug === battleSlug);
   if (!battle) return { title: "Not Found" };
 
+  // Reverse-pair canonicalization: if another battle compares the same two
+  // providers in the opposite order (e.g. altrx-vs-noom and noom-vs-altrx),
+  // both target the same query intent and split ranking signals. Point every
+  // page for a given provider pair at one deterministic canonical — the
+  // alphabetically-first slug — so Google consolidates them into one result.
+  const samePairSlugs = (config.battles ?? [])
+    .filter(
+      (b) =>
+        (b.provider1Id === battle.provider1Id && b.provider2Id === battle.provider2Id) ||
+        (b.provider1Id === battle.provider2Id && b.provider2Id === battle.provider1Id)
+    )
+    .map((b) => b.slug)
+    .sort();
+  const canonicalSlug = samePairSlugs[0] ?? battle.slug;
+  const canonicalUrl = `https://www.tophairloss.io/${canonicalSlug}`;
+
   return {
     title: battle.title,
     description: battle.description,
-    alternates: { canonical: `https://www.tophairloss.io/${battle.slug}` },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title: battle.title,
       description: battle.description,
-      url: `https://www.tophairloss.io/${battle.slug}`,
+      url: canonicalUrl,
       type: "article",
     },
   };
@@ -161,6 +177,23 @@ export default async function BattlePage({
   const battle = (config.battles ?? []).find((b) => b.slug === battleSlug);
   if (!battle) return notFound();
 
+  // Collapse reverse-pair duplicates (e.g. embody-vs-altrx ↔ altrx-vs-embody):
+  // both slugs render the same matchup and compete in search. 308-redirect any
+  // non-canonical slug to the single canonical (alphabetically-first) slug for
+  // this provider pair so only one URL is indexed and its authority is pooled.
+  const samePairSlugs = (config.battles ?? [])
+    .filter(
+      (b) =>
+        (b.provider1Id === battle.provider1Id && b.provider2Id === battle.provider2Id) ||
+        (b.provider1Id === battle.provider2Id && b.provider2Id === battle.provider1Id)
+    )
+    .map((b) => b.slug)
+    .sort();
+  const canonicalPairSlug = samePairSlugs[0] ?? battle.slug;
+  if (canonicalPairSlug !== battleSlug) {
+    permanentRedirect(`/${canonicalPairSlug}`);
+  }
+
   const p1 = config.providers.find((p) => p.id === battle.provider1Id);
   const p2 = config.providers.find((p) => p.id === battle.provider2Id);
   if (!p1 || !p2) return notFound();
@@ -170,12 +203,30 @@ export default async function BattlePage({
   // reordering provider1/provider2 (which drives winner logic).
   const matchupLabel = battle.matchupLabel || `${p1.name} vs ${p2.name}`;
 
-  // Winner is set per-battle in the CMS (Admin → Battles → Winner)
-  const winner = battle.winnerId === p2.id ? p2 : p1;
-  const loser = winner.id === p1.id ? p2 : p1;
-  const hasExplicitWinner = battle.winnerId === p1.id || battle.winnerId === p2.id;
+  // Objective framing: no declared "winner". Map the per-side verdict points to
+  // each provider (the CMS stores them as winner/loser points) so both columns
+  // read as an even "go with X if… / go with Y if…" recommendation.
+  const p1IsBattleWinner = battle.winnerId === p1.id;
+  const p1VerdictPoints = p1IsBattleWinner ? (battle.verdictWinnerPoints ?? []) : (battle.verdictLoserPoints ?? []);
+  const p2VerdictPoints = p1IsBattleWinner ? (battle.verdictLoserPoints ?? []) : (battle.verdictWinnerPoints ?? []);
 
-  // Related comparisons — other battles featuring either provider (internal links)
+  // Per-provider deep dives. Each provider gets its own rich, full section
+  // (intro, what-you-get, pricing, pros/cons, its own Trustpilot reviews, CTA)
+  // pulled from that provider's review data — so the page reads as two honest,
+  // standalone write-ups rather than a "who wins" head-to-head. `bestForFallback`
+  // covers providers that don't have a review entry yet.
+  const p1Review = (config.reviews ?? []).find((r) => r.providerId === p1.id);
+  const p2Review = (config.reviews ?? []).find((r) => r.providerId === p2.id);
+  const deepDives = [
+    { provider: p1, review: p1Review, bestForFallback: p1VerdictPoints },
+    { provider: p2, review: p2Review, bestForFallback: p2VerdictPoints },
+  ];
+
+  // Related comparisons — other battles featuring either provider (internal links).
+  // Ordered by relevance: comparisons involving this matchup's winner surface
+  // first (a reader is most likely to keep evaluating the winner against other
+  // options), then the rest in config order — the stable sort preserves that
+  // order within each tier.
   const relatedBattles = (config.battles ?? [])
     .filter(
       (b) =>
@@ -185,15 +236,14 @@ export default async function BattlePage({
     .map((b) => {
       const bp1 = config.providers.find((p) => p.id === b.provider1Id);
       const bp2 = config.providers.find((p) => p.id === b.provider2Id);
-      return bp1 && bp2 ? { slug: b.slug, bp1, bp2 } : null;
+      if (!bp1 || !bp2) return null;
+      const featuresWinner =
+        b.provider1Id === battle.winnerId || b.provider2Id === battle.winnerId;
+      return { slug: b.slug, bp1, bp2, featuresWinner };
     })
     .filter((x): x is NonNullable<typeof x> => x !== null)
-    .slice(0, 4);
-
-  const getCategoryLabel = (cat: (typeof battle.categories)[0]) => {
-    if (cat.winner === "tie") return "Close call";
-    return cat.winner === "provider1" ? `Edge: ${p1.name}` : `Edge: ${p2.name}`;
-  };
+    .sort((a, b) => Number(b.featuresWinner) - Number(a.featuresWinner))
+    .slice(0, 6);
 
   // FAQ — real, query-shaped questions answered from grounded battle content.
   // Expands the queries the page can rank for (long-tail + People Also Ask) and
@@ -207,14 +257,14 @@ export default async function BattlePage({
     if (n.includes("customer") || n.includes("experience") || n.includes("service") || n.includes("personal")) return `Which has better customer reviews, ${p1.name} or ${p2.name}?`;
     if (n.includes("flexib")) return `Which offers more flexible plans, ${p1.name} or ${p2.name}?`;
     if (n.includes("focus") || n.includes("simplic")) return `Which is more focused on hair loss, ${p1.name} or ${p2.name}?`;
-    if (n.includes("range") || n.includes("beyond")) return `Does ${p2.name} offer more than the basics compared to ${p1.name}?`;
+    if (n.includes("range") || n.includes("beyond")) return `Does ${p2.name} offer more than hair loss compared to ${p1.name}?`;
     if (n.includes("brand") || n.includes("track") || n.includes("pharmacy")) return `Which is the more established brand, ${p1.name} or ${p2.name}?`;
     if (n.includes("transparen") || n.includes("certif")) return `Which is more transparent about pricing, ${p1.name} or ${p2.name}?`;
     return `${name}: ${p1.name} or ${p2.name}?`;
   };
 
   const battleFaqs = [
-    { question: `Who wins, ${matchupLabel}?`, answer: battle.verdict },
+    { question: `Which is better, ${matchupLabel}?`, answer: battle.verdict },
     ...battle.categories.map((cat) => ({ question: catToQuestion(cat.name), answer: cat.explanation })),
   ].filter((f, i, arr) => !!f.answer && arr.findIndex((x) => x.question === f.question) === i);
 
@@ -303,8 +353,7 @@ export default async function BattlePage({
               </div>
             </div>
 
-            {(hasExplicitWinner ? [winner, loser] : [p1, p2]).map((provider, idx) => {
-              const isWinner = hasExplicitWinner && provider.id === battle.winnerId;
+            {[p1, p2].map((provider, idx) => {
               return (
               <Fragment key={provider.id}>
                 {/* VS badge — mobile: sits in the gap BETWEEN the two stacked cards */}
@@ -315,15 +364,7 @@ export default async function BattlePage({
                     </div>
                   </div>
                 )}
-              <div
-                className={`relative flex h-full flex-col rounded-2xl border bg-white px-6 pb-6 pt-7 shadow-sm ${isWinner ? "border-emerald-300" : "border-gray-200"}`}
-              >
-                {isWinner && (
-                  <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm">
-                    <Trophy className="h-3 w-3" strokeWidth={2.5} />
-                    Winner
-                  </div>
-                )}
+              <div className="relative flex h-full flex-col rounded-2xl border border-gray-200 bg-white px-6 pb-6 pt-7 shadow-sm">
                 <div className="mb-3 flex items-center justify-between">
                   <div className="flex h-[40px] w-[110px] items-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -331,7 +372,7 @@ export default async function BattlePage({
                   </div>
                 </div>
 
-                {isWinner && provider.trustpilotRating && (
+                {provider.trustpilotRating && (
                   <div className="mb-3 border-b border-gray-100 pb-3">
                     <TrustpilotRating
                       rating={provider.trustpilotRating}
@@ -370,182 +411,6 @@ export default async function BattlePage({
               );
             })}
           </div>
-
-          {/* ───── ROUND-BY-ROUND COMPARISON ───── */}
-          <div className="mb-14">
-            <h2 className="mb-8 text-[24px] font-bold text-[#191919]">
-              How They Compare
-            </h2>
-
-            <div className="space-y-6">
-              {battle.categories.map((cat, i) => {
-                const label = getCategoryLabel(cat);
-                const isP1Edge = cat.winner === "provider1";
-                const isP2Edge = cat.winner === "provider2";
-                const isTie = cat.winner === "tie";
-
-                return (
-                  <div key={i} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
-                    {/* Round header */}
-                    <div className="flex items-center justify-between border-b border-gray-100 bg-gray-50/70 px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0C4B75] text-[12px] font-bold text-white">
-                          {i + 1}
-                        </span>
-                        <h3 className="text-[16px] font-bold text-[#191919]">
-                          {cat.name}
-                        </h3>
-                      </div>
-                      <span className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide ${
-                        isTie
-                          ? "bg-amber-50 text-amber-600"
-                          : "bg-emerald-50 text-emerald-700"
-                      }`}>
-                        {label}
-                      </span>
-                    </div>
-
-                    <div className="p-6">
-                      <p className="mb-5 max-w-[700px] text-[14px] leading-[1.7] text-gray-500">
-                        {cat.explanation}
-                      </p>
-
-                      {cat.supportingPoints && cat.supportingPoints.length > 0 && (
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          {/* P1 strengths */}
-                          <div className={`rounded-xl p-4 ${isP1Edge ? "bg-emerald-50/50 border border-emerald-100" : "bg-gray-50"}`}>
-                            <p className={`mb-2.5 text-[12px] font-bold uppercase tracking-wider ${isP1Edge ? "text-emerald-700" : "text-gray-400"}`}>
-                              {p1.name}
-                            </p>
-                            <ul className="space-y-1.5">
-                              {cat.supportingPoints.slice(0, Math.ceil(cat.supportingPoints.length / 2)).map((point, pi) => (
-                                <li key={pi} className="flex items-start gap-2 text-[13px] text-gray-600">
-                                  <Check className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${isP1Edge ? "text-emerald-500" : "text-gray-400"}`} strokeWidth={2} />
-                                  {point}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          {/* P2 strengths */}
-                          <div className={`rounded-xl p-4 ${isP2Edge ? "bg-emerald-50/50 border border-emerald-100" : "bg-gray-50"}`}>
-                            <p className={`mb-2.5 text-[12px] font-bold uppercase tracking-wider ${isP2Edge ? "text-emerald-700" : "text-gray-400"}`}>
-                              {p2.name}
-                            </p>
-                            <ul className="space-y-1.5">
-                              {cat.supportingPoints.slice(Math.ceil(cat.supportingPoints.length / 2)).map((point, pi) => (
-                                <li key={pi} className="flex items-start gap-2 text-[13px] text-gray-600">
-                                  <Check className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${isP2Edge ? "text-emerald-500" : "text-gray-400"}`} strokeWidth={2} />
-                                  {point}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* ───── WINNER PROMO BANNER (mid-page, e-commerce style) ───── */}
-          {hasExplicitWinner && (
-            <div className="mb-14 overflow-hidden rounded-3xl bg-gradient-to-br from-[#E9F1E4] to-[#F7FAF4] shadow-sm">
-              <div className={`grid ${config.battleWinnerBannerImageDesktop ? "sm:grid-cols-2" : ""}`}>
-                {/* Mobile image */}
-                {config.battleWinnerBannerImageMobile && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={config.battleWinnerBannerImageMobile}
-                    alt={`${winner.name} customers`}
-                    className="h-52 w-full object-cover sm:hidden"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                )}
-
-                {/* Content */}
-                <div className="flex flex-col items-start justify-center p-6 sm:p-10 lg:p-12">
-                  <span className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white">
-                    <Trophy className="h-3.5 w-3.5" strokeWidth={2.5} />
-                    Our pick
-                  </span>
-
-                  <div className="mb-4 flex h-[38px] w-[150px] items-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={winner.logo}
-                      alt={`${winner.name} logo`}
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-
-                  <p className="mb-4 text-[24px] font-extrabold leading-tight text-[#191919] sm:text-[28px]">
-                    {winner.tagline}
-                  </p>
-
-                  <ul className="mb-6 space-y-2">
-                    {winner.highlights.slice(0, 3).map((h, hi) => (
-                      <li key={hi} className="flex items-start gap-2 text-[14px] text-gray-700">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2.5} />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <ProviderCta
-                    href={winner.affiliateUrl}
-                    providerName={winner.name}
-                    providerSlug={winner.id}
-                    pageType="battle"
-                    sourceFlow="battle_page"
-                    className="flex h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-[#0C4B75] px-8 text-[15px] font-bold text-white transition-colors hover:bg-[#093d61] sm:w-auto"
-                  >
-                    Visit {winner.name}
-                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                  </ProviderCta>
-                </div>
-
-                {/* Desktop image */}
-                {config.battleWinnerBannerImageDesktop && (
-                  <div className="relative hidden min-h-[340px] sm:block">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={config.battleWinnerBannerImageDesktop}
-                      alt={`${winner.name} customer`}
-                      className="absolute inset-0 h-full w-full object-cover object-top"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* ───── TRUSTPILOT REVIEWS ───── */}
-          {((p1.trustpilotReviews?.length ?? 0) > 0 || (p2.trustpilotReviews?.length ?? 0) > 0) && (
-            <div className="mb-14">
-              <h2 className="mb-6 text-[22px] font-bold text-[#191919]">
-                What Real Customers Say
-              </h2>
-              <div className="space-y-6">
-                {[p1, p2].map((provider) =>
-                  (provider.trustpilotReviews?.length ?? 0) > 0 ? (
-                    <TrustpilotCarousel
-                      key={provider.id}
-                      providerName={provider.name}
-                      providerLogo={provider.logo}
-                      reviews={provider.trustpilotReviews!}
-                      rating={provider.trustpilotRating}
-                      reviewCount={provider.trustpilotReviewCount}
-                    />
-                  ) : null
-                )}
-              </div>
-            </div>
-          )}
 
           {/* ───── FEATURE COMPARISON TABLE ───── */}
           {battle.features && battle.features.length > 0 && (() => {
@@ -660,70 +525,251 @@ export default async function BattlePage({
             );
           })()}
 
-          {/* ───── VERDICT ───── */}
-          <div className="mb-14 overflow-hidden rounded-2xl border border-gray-200 bg-white">
-            <div className="p-6 sm:p-8">
-              <div className="mb-5 flex flex-wrap items-center gap-3">
-                <h2 className="text-[22px] font-bold text-[#191919]">So, which should you pick?</h2>
-                {hasExplicitWinner && (
-                  <span className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-[12px] font-bold text-emerald-700">
-                    <Trophy className="h-3.5 w-3.5" strokeWidth={2.5} />
-                    Winner: {winner.name}
-                  </span>
-                )}
-              </div>
-
-              <p className="mb-6 text-[15px] leading-[1.75] text-gray-600">
-                {battle.verdict}
+          {/* ───── PER-PROVIDER DEEP DIVES ───── */}
+          <div className="mb-14">
+            <div className="mb-8 max-w-[760px]">
+              <p className="mb-2.5 text-[12px] font-bold uppercase tracking-[0.07em] text-[#0C4B75]">
+                The full breakdown
               </p>
+              <h2 className="text-[24px] font-bold text-[#191919]">
+                {p1.name} vs {p2.name}: a closer look at each
+              </h2>
+              <p className="mt-3 text-[15px] leading-[1.8] text-gray-600">
+                Both are solid hair loss providers, and honestly you can&rsquo;t go
+                too wrong either way. So instead of crowning a &ldquo;winner,&rdquo; here&rsquo;s the
+                real rundown on each &mdash; what you get, what it actually costs, and what
+                real customers are saying &mdash; so you can pick the one that fits <em>you</em>.
+              </p>
+            </div>
 
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className={`rounded-xl p-5 ${hasExplicitWinner ? "border border-emerald-100 bg-emerald-50/50" : "bg-gray-50"}`}>
-                  <p className="mb-3 text-[13px] font-bold uppercase tracking-wider text-[#191919]">
-                    Choose {winner.name} if you want
-                  </p>
-                  <ul className="space-y-2">
-                    {(battle.verdictWinnerPoints ?? []).map((point, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2.5 text-[14px] text-gray-600"
+            <div className="space-y-10">
+              {deepDives.map(({ provider, review, bestForFallback }) => {
+                const features = review?.keyFeatures?.length ? review.keyFeatures : provider.highlights;
+                const bestFor = review?.bestFor?.length ? review.bestFor : bestForFallback;
+                const plans = review?.pricingPlans ?? [];
+                const pros = review?.pros ?? [];
+                const cons = review?.cons ?? [];
+                const badges = review?.trustBadges ?? [];
+                const lead = review?.reviewIntro || provider.tagline;
+                const reviewCount = provider.trustpilotReviews?.length ?? 0;
+
+                return (
+                  <section
+                    key={provider.id}
+                    className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm"
+                  >
+                    {/* Accent bar */}
+                    <div className="h-1 bg-gradient-to-r from-[#0C4B75] via-[#1a8cd8] to-[#0C4B75]" />
+
+                    <div className="p-6 sm:p-8">
+                      {/* Header: logo + Trustpilot rating + quick CTA */}
+                      <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-6">
+                        <div className="flex flex-wrap items-center gap-4">
+                          <div className="flex h-[44px] w-[130px] items-center">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={provider.logo} alt={`${provider.name} logo`} className="max-h-full max-w-full object-contain" />
+                          </div>
+                          {provider.trustpilotRating && (
+                            <div className="border-l border-gray-200 pl-4">
+                              <TrustpilotRating
+                                rating={provider.trustpilotRating}
+                                reviewCount={provider.trustpilotReviewCount}
+                                starSize={15}
+                              />
+                            </div>
+                          )}
+                        </div>
+                        <ProviderCta
+                          href={provider.affiliateUrl}
+                          providerName={provider.name}
+                          providerSlug={provider.id}
+                          pageType="battle"
+                          sourceFlow="battle_page"
+                          className="inline-flex h-[42px] items-center justify-center gap-1.5 rounded-xl bg-[#0C4B75] px-5 text-[14px] font-bold text-white transition-colors hover:bg-[#093d61]"
+                        >
+                          Visit {provider.name}
+                          <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+                        </ProviderCta>
+                      </div>
+
+                      {/* Intro */}
+                      <h3 className="mb-2.5 text-[20px] font-bold text-[#191919]">
+                        What is {provider.name}?
+                      </h3>
+                      <p className="mb-6 max-w-[820px] text-[15px] leading-[1.85] text-gray-600">
+                        {lead}
+                      </p>
+
+                      {/* Trust badges */}
+                      {badges.length > 0 && (
+                        <div className="mb-8 flex flex-wrap gap-2">
+                          {badges.map((b, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-[12px] font-semibold text-gray-600"
+                            >
+                              <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" strokeWidth={2} />
+                              {b}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* What you get + Who it's best for */}
+                      <div className="mb-8 grid gap-6 sm:grid-cols-2">
+                        <div>
+                          <h4 className="mb-3 flex items-center gap-2 text-[15px] font-bold text-[#191919]">
+                            <Check className="h-4 w-4 text-emerald-500" strokeWidth={2.5} />
+                            What you get with {provider.name}
+                          </h4>
+                          <ul className="space-y-2">
+                            {features.map((f, i) => (
+                              <li key={i} className="flex items-start gap-2 text-[14px] leading-[1.6] text-gray-600">
+                                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" strokeWidth={2} />
+                                {f}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        {bestFor.length > 0 && (
+                          <div>
+                            <h4 className="mb-3 flex items-center gap-2 text-[15px] font-bold text-[#191919]">
+                              <Sparkles className="h-4 w-4 text-[#0C4B75]" strokeWidth={2} />
+                              Who {provider.name} is best for
+                            </h4>
+                            <ul className="space-y-2">
+                              {bestFor.map((f, i) => (
+                                <li key={i} className="flex items-start gap-2 text-[14px] leading-[1.6] text-gray-600">
+                                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0C4B75]" strokeWidth={2} />
+                                  {f}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Pricing */}
+                      {plans.length > 0 ? (
+                        <div className="mb-8">
+                          <h4 className="mb-1.5 text-[17px] font-bold text-[#191919]">
+                            How much does {provider.name} cost?
+                          </h4>
+                          {review?.pricingSummary && (
+                            <p className="mb-4 max-w-[820px] text-[14px] leading-[1.7] text-gray-500">
+                              {review.pricingSummary}
+                            </p>
+                          )}
+                          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                            {plans.map((plan, i) => (
+                              <div key={i} className="rounded-xl border border-gray-200 bg-gray-50/60 p-4">
+                                <p className="text-[13px] font-bold text-[#191919]">{plan.name}</p>
+                                <p className="mb-2 text-[12px] text-gray-500">{plan.medication}</p>
+                                <div className="flex items-baseline gap-1.5">
+                                  <span className="text-[22px] font-extrabold text-[#0C4B75]">{plan.price}</span>
+                                  {plan.regularPrice && (
+                                    <span className="text-[13px] text-gray-400 line-through">{plan.regularPrice}</span>
+                                  )}
+                                  {plan.unit && <span className="text-[12px] text-gray-400">{plan.unit}</span>}
+                                </div>
+                                {plan.cadence && (
+                                  <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-gray-400">
+                                    {plan.cadence}
+                                  </p>
+                                )}
+                                {plan.highlights && plan.highlights.length > 0 && (
+                                  <ul className="mt-3 space-y-1.5 border-t border-gray-200 pt-3">
+                                    {plan.highlights.map((h, hi) => (
+                                      <li key={hi} className="flex items-start gap-1.5 text-[12px] leading-[1.5] text-gray-500">
+                                        <Check className="mt-0.5 h-3 w-3 shrink-0 text-emerald-500" strokeWidth={2} />
+                                        {h}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : review?.pricingSummary ? (
+                        <div className="mb-8">
+                          <h4 className="mb-1.5 text-[17px] font-bold text-[#191919]">
+                            How much does {provider.name} cost?
+                          </h4>
+                          <p className="max-w-[820px] text-[14px] leading-[1.7] text-gray-500">
+                            {review.pricingSummary}
+                          </p>
+                        </div>
+                      ) : null}
+
+                      {/* Pros / cons */}
+                      {(pros.length > 0 || cons.length > 0) && (
+                        <div className="mb-8 grid gap-4 sm:grid-cols-2">
+                          {pros.length > 0 && (
+                            <div className="rounded-xl border border-emerald-100 bg-emerald-50/40 p-5">
+                              <p className="mb-3 text-[14px] font-bold text-emerald-800">
+                                What we like about {provider.name}
+                              </p>
+                              <ul className="space-y-2">
+                                {pros.map((pt, i) => (
+                                  <li key={i} className="flex items-start gap-2 text-[13.5px] leading-[1.55] text-gray-700">
+                                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" strokeWidth={2.5} />
+                                    {pt}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {cons.length > 0 && (
+                            <div className="rounded-xl border border-gray-200 bg-gray-50/60 p-5">
+                              <p className="mb-3 text-[14px] font-bold text-gray-700">
+                                Worth keeping in mind
+                              </p>
+                              <ul className="space-y-2">
+                                {cons.map((c, i) => (
+                                  <li key={i} className="flex items-start gap-2 text-[13.5px] leading-[1.55] text-gray-600">
+                                    <Minus className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-400" strokeWidth={2} />
+                                    {c}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* This provider's Trustpilot reviews */}
+                      {reviewCount > 0 && (
+                        <div className="mb-8">
+                          <h4 className="mb-4 text-[17px] font-bold text-[#191919]">
+                            What real {provider.name} customers are saying
+                          </h4>
+                          <TrustpilotCarousel
+                            providerName={provider.name}
+                            providerLogo={provider.logo}
+                            reviews={provider.trustpilotReviews!}
+                            rating={provider.trustpilotRating}
+                            reviewCount={provider.trustpilotReviewCount}
+                          />
+                        </div>
+                      )}
+
+                      {/* Bottom CTA */}
+                      <ProviderCta
+                        href={provider.affiliateUrl}
+                        providerName={provider.name}
+                        providerSlug={provider.id}
+                        pageType="battle"
+                        sourceFlow="battle_page"
+                        className="flex h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#0C4B75] text-[15px] font-bold text-white transition-colors hover:bg-[#093d61]"
                       >
-                        <Check className={`mt-0.5 h-4 w-4 shrink-0 ${hasExplicitWinner ? "text-emerald-500" : "text-gray-400"}`} strokeWidth={2} />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="rounded-xl bg-gray-50 p-5">
-                  <p className="mb-3 text-[13px] font-bold uppercase tracking-wider text-[#191919]">
-                    Choose {loser.name} if you prefer
-                  </p>
-                  <ul className="space-y-2">
-                    {(battle.verdictLoserPoints ?? []).map((point, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2.5 text-[14px] text-gray-600"
-                      >
-                        <Minus className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" strokeWidth={2} />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <ProviderCta
-                href={winner.affiliateUrl}
-                providerName={winner.name}
-                providerSlug={winner.id}
-                pageType="battle"
-                sourceFlow="battle_page"
-                className="mt-7 flex h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-[#0C4B75] text-[15px] font-bold text-white transition-colors hover:bg-[#093d61] sm:w-auto sm:px-8"
-              >
-                Visit {winner.name}
-                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-              </ProviderCta>
+                        Get started with {provider.name}
+                        <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                      </ProviderCta>
+                    </div>
+                  </section>
+                );
+              })}
             </div>
           </div>
 

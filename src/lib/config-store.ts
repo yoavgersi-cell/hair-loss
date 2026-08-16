@@ -49,6 +49,7 @@ const defaultReviews: ReviewData[] = [
       "People who value a polished, well-known platform",
     ],
     finalVerdict: "Hims is a strong all-rounder for men's hair loss — it offers the proven medications (finasteride and minoxidil) plus the widest set of supporting products, all through a slick, trusted platform. If you want one recognizable brand to handle your whole routine, Hims is hard to beat; the main watch-out is stacking multiple subscriptions.",
+    trustBadges: ["Rx finasteride & minoxidil", "100% online consult", "Discreet home delivery", "Cancel anytime"],
   },
   {
     slug: "keeps",
@@ -87,6 +88,7 @@ const defaultReviews: ReviewData[] = [
       "Anyone who prefers a focused platform over a broad one",
     ],
     finalVerdict: "Keeps does one thing and does it well: affordable, no-nonsense men's hair loss treatment. With generic finasteride and minoxidil, physician oversight, and low subscription pricing, it's an excellent starting point for men who want the proven basics without paying for extras.",
+    trustBadges: ["Hair-loss-focused Rx", "Physician-reviewed", "Discreet delivery", "Cancel anytime"],
   },
   {
     slug: "roman",
@@ -125,6 +127,7 @@ const defaultReviews: ReviewData[] = [
       "Anyone already using Ro for other men's-health needs",
     ],
     finalVerdict: "Roman is a dependable, well-run choice for men's hair loss, pairing the proven medications with the credibility and polish of the Ro platform. It may not have the niche extras of hair-only brands, but for clinician-guided care from a trusted name, it's a solid pick.",
+    trustBadges: ["Licensed provider review", "Powered by the Ro platform", "Free discreet shipping", "Cancel anytime"],
   },
   {
     slug: "happyhead",
@@ -163,6 +166,7 @@ const defaultReviews: ReviewData[] = [
       "Anyone who hasn't responded to standard finasteride/minoxidil",
     ],
     finalVerdict: "Happy Head is the pick for a personalized, dermatologist-led approach — its custom-compounded topicals and oral options go beyond the one-size-fits-all routine, and it's one of the few that treats women as well as men. You'll pay more than for generics, but for tailored, prescription-strength care it stands out.",
+    trustBadges: ["Dermatologist-founded", "Custom-compounded Rx", "Topical & oral options", "For men & women"],
   },
   {
     slug: "nutrafol",
@@ -202,6 +206,7 @@ const defaultReviews: ReviewData[] = [
       "Anyone avoiding or unable to take finasteride/minoxidil",
     ],
     finalVerdict: "Nutrafol is the standout drug-free option — a physician-formulated supplement that targets the stress, hormone, and nutrition factors behind thinning hair, for both men and women. It won't replace finasteride or minoxidil for pattern hair loss, and it asks for patience and a premium monthly price, but for anyone who wants to avoid medication, it's the most credible supplement choice.",
+    trustBadges: ["Drug-free supplement", "Physician-formulated", "Clinically tested", "For men & women"],
   },
   {
     slug: "maximus",
@@ -241,6 +246,7 @@ const defaultReviews: ReviewData[] = [
       "Anyone wanting dutasteride as a stronger DHT option",
     ],
     finalVerdict: "Maximus is a strong pick for men who want a potent, oral-only approach to hair loss — its protocol combines oral minoxidil with a DHT blocker (finasteride or dutasteride) in one daily formulation, skipping the topical routine entirely. It's premium and men-focused, and the stronger actives call for good medical oversight, but for a comprehensive all-in-one oral protocol it stands out.",
+    trustBadges: ["Prescription oral protocol", "Licensed provider oversight", "All-in-one daily formula", "Men's-health focus"],
   },
 ];
 

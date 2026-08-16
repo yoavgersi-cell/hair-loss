@@ -52,6 +52,25 @@ export interface RankingPageConfig {
   positions: RankingPosition[];
 }
 
+// A single priced plan on a review page. `regularPrice` (optional) renders
+// struck-through next to `price` to show an active discount.
+export interface ReviewPricingPlan {
+  name: string;
+  medication: string;
+  price: string;
+  regularPrice?: string;
+  unit?: string;
+  cadence?: string;
+  highlights?: string[];
+}
+
+// A step in the "How <provider> works" timeline on a review page.
+export interface ReviewHowItWorksStep {
+  timing?: string;
+  title: string;
+  detail?: string;
+}
+
 export interface ReviewData {
   slug: string;
   providerId: string;
@@ -65,6 +84,10 @@ export interface ReviewData {
   bestFor: string[];
   finalVerdict: string;
   updatedAt?: string;
+  // Optional richer content, rendered only when present (back-compatible).
+  pricingPlans?: ReviewPricingPlan[];
+  howItWorks?: ReviewHowItWorksStep[];
+  trustBadges?: string[];
 }
 
 export interface FaqItem {
